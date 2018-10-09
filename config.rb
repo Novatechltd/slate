@@ -57,6 +57,6 @@ helpers do
   require './lib/toc_data.rb'
 end
 
-set :api_endpoint, "https://api-dev.novatech.co.uk"
+set :api_endpoint, "https://test-api.novatech.co.uk"
 set :test_email, "test.email@novatech.co.uk"
 set :test_password, "aVeryLongAndSecurePassword"
