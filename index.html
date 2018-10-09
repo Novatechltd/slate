@@ -1,0 +1,1104 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Novatech API Documentation</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="index" data-languages="[&quot;shell&quot;,&quot;python&quot;,&quot;go&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo.png" class="logo" alt="Logo" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">cURL</a>
+              <a href="#" data-language-name="python">Python</a>
+              <a href="#" data-language-name="go">Go</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-token" class="toc-h2 toc-link" data-title="Get Token">Get Token</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#stock" class="toc-h1 toc-link" data-title="Stock">Stock</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-current-stock-information" class="toc-h2 toc-link" data-title="Get All Current Stock Information">Get All Current Stock Information</a>
+                  </li>
+                  <li>
+                    <a href="#get-information-on-a-specific-sku" class="toc-h2 toc-link" data-title="Get Information on a Specific SKU">Get Information on a Specific SKU</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#orders" class="toc-h1 toc-link" data-title="Orders">Orders</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#place-an-order" class="toc-h2 toc-link" data-title="Place an Order">Place an Order</a>
+                  </li>
+                  <li>
+                    <a href="#lookup-order-information" class="toc-h2 toc-link" data-title="Lookup Order Information">Lookup Order Information</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+          </li>
+      </ul>
+        <ul class="toc-footer">
+            <li><p>Speak to your Novatech Account<br />Manager to setup an API account.</p></li>
+            <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='introduction'>Introduction</h1>
+<p>Welcome to the Novatech API. You can use our API to access Novatech API endpoints, which will allow you to query current stock levels, place orders, as well as get dispatch and tracking information on any of the orders on your account.</p>
+
+<p>In order to gain access to this API you will need to speak with your Novatech Account Manager, who can arrange for your account to be API enabled.</p>
+
+<p>You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<h1 id='authentication'>Authentication</h1>
+<p>The Novatech API uses <a href="https://jwt.io/">JSON Web Tokens</a> to authenticate your access. In order to generate a token your account will need to be API enabled, upon which you will be given a username and password combination.</p>
+
+<p>Using these credentials you authenticate to the server and receive a token. Once you have received your token, you must include it in all API requests to the server in a header that looks like the following:</p>
+
+<p><code>Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkZWFuLndpbGxpYW1zQG5vdmF0ZWNoLmNvLnVrIiwidG9rZW4iOiIxMDNkMTFhNC1jODdhLTQxMDgtOTIwNS1jMTUxZDM4YjY3YmQiLCJleHAiOjE1MzkwMDY2MjR9.19DQ_uwE5Ye1ALrwiW9o7wsMhoetUqDLQMNcFCxwtEc</code></p>
+
+<aside class="notice">
+For brevity, the authorization header will be omitted from the sidebar code examples.
+</aside>
+<h2 id='get-token'>Get Token</h2>
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request POST <span class="se">\</span>
+  --url https://api-dev.novatech.co.uk/token/get <span class="se">\</span>
+  --header <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  --data <span class="s1">'{ "email":"test.email@novatech.co.uk", "password":"aVeryLongAndSecurePassword" }'</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api-dev.novatech.co.uk/token/get"</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="s">"{ </span><span class="se">\"</span><span class="s">email</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">test.email@novatech.co.uk</span><span class="se">\"</span><span class="s">, </span><span class="se">\"</span><span class="s">password</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">aVeryLongAndSecurePassword</span><span class="se">\"</span><span class="s"> }"</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre><pre class="highlight go tab-go"><code><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
+
+</span><span class="k">import</span><span class="x"> </span><span class="p">(</span><span class="x">
+    </span><span class="s">"fmt"</span><span class="x">
+    </span><span class="s">"strings"</span><span class="x">
+    </span><span class="s">"net/http"</span><span class="x">
+    </span><span class="s">"io/ioutil"</span><span class="x">
+</span><span class="p">)</span><span class="x">
+
+</span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
+
+    </span><span class="n">url</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="s">"https://api-dev.novatech.co.uk/token/get"</span><span class="x">
+
+    </span><span class="n">payload</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">strings</span><span class="o">.</span><span class="n">NewReader</span><span class="p">(</span><span class="s">"{ </span><span class="se">\"</span><span class="s">email</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">test.email@novatech.co.uk</span><span class="se">\"</span><span class="s">, </span><span class="se">\"</span><span class="s">password</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">aVeryLongAndSecurePassword</span><span class="se">\"</span><span class="s"> }"</span><span class="p">)</span><span class="x">
+
+    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span><span class="x"> </span><span class="n">url</span><span class="p">,</span><span class="x"> </span><span class="n">payload</span><span class="p">)</span><span class="x">
+
+    </span><span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="s">"Content-Type"</span><span class="p">,</span><span class="x"> </span><span class="s">"application/json"</span><span class="p">)</span><span class="x">
+
+    </span><span class="n">res</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">DefaultClient</span><span class="o">.</span><span class="n">Do</span><span class="p">(</span><span class="n">req</span><span class="p">)</span><span class="x">
+
+    </span><span class="k">defer</span><span class="x"> </span><span class="n">res</span><span class="o">.</span><span class="n">Body</span><span class="o">.</span><span class="n">Close</span><span class="p">()</span><span class="x">
+    </span><span class="n">body</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">ioutil</span><span class="o">.</span><span class="n">ReadAll</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">Body</span><span class="p">)</span><span class="x">
+
+    </span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">res</span><span class="p">)</span><span class="x">
+    </span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="kt">string</span><span class="p">(</span><span class="n">body</span><span class="p">))</span><span class="x">
+
+</span><span class="p">}</span><span class="x">
+</span></code></pre>
+<blockquote>
+<p>Upon successful authentication you will receive back JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkZWFuLndpbGxpYW1zQG5vdmF0ZWNoLmNvLnVrIiwidG9rZW4iOiIxMDNkMTFhNC1jODdhLTQxMDgtOTIwNS1jMTUxZDM4YjY3YmQiLCJleHAiOjE1MzkwMDY2MjR9.19DQ_uwE5Ye1ALrwiW9o7wsMhoetUqDLQMNcFCxwtEc"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"expires_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-08 14:50:24"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://api-dev.novatech.co.uk/token/get</code></p>
+<h3 id='body-parameters'>Body Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email</td>
+<td>yes</td>
+<td>The username/email address for your API account</td>
+</tr>
+<tr>
+<td>password</td>
+<td>yes</td>
+<td>The password for your account</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+You must replace the email and password with your specific account details.
+</aside>
+<h1 id='stock'>Stock</h1><h2 id='get-all-current-stock-information'>Get All Current Stock Information</h2><pre class="highlight shell tab-shell"><code>curl --request GET <span class="se">\</span>
+  --url https://api-dev.novatech.co.uk/stock
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api-dev.novatech.co.uk/stock"</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre><pre class="highlight go tab-go"><code><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
+
+</span><span class="k">import</span><span class="x"> </span><span class="p">(</span><span class="x">
+    </span><span class="s">"fmt"</span><span class="x">
+    </span><span class="s">"net/http"</span><span class="x">
+    </span><span class="s">"io/ioutil"</span><span class="x">
+</span><span class="p">)</span><span class="x">
+
+</span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
+
+    </span><span class="n">url</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="s">"https://api-dev.novatech.co.uk/stock"</span><span class="x">
+
+    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span><span class="x"> </span><span class="n">url</span><span class="p">,</span><span class="x"> </span><span class="no">nil</span><span class="p">)</span><span class="x">
+
+    </span><span class="n">res</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">DefaultClient</span><span class="o">.</span><span class="n">Do</span><span class="p">(</span><span class="n">req</span><span class="p">)</span><span class="x">
+
+    </span><span class="k">defer</span><span class="x"> </span><span class="n">res</span><span class="o">.</span><span class="n">Body</span><span class="o">.</span><span class="n">Close</span><span class="p">()</span><span class="x">
+    </span><span class="n">body</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">ioutil</span><span class="o">.</span><span class="n">ReadAll</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">Body</span><span class="p">)</span><span class="x">
+
+    </span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">res</span><span class="p">)</span><span class="x">
+    </span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="kt">string</span><span class="p">(</span><span class="n">body</span><span class="p">))</span><span class="x">
+
+</span><span class="p">}</span><span class="x">
+</span></code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"skus"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TEST-SKU01"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example SKU 01"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"stock_level"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">314.99</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TEST-SKU02"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example SKU 02"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"stock_level"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">973.67</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TEST-SKU03"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example SKU 03"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"stock_level"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">229.04</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all stock information for SKUs associated with your API account.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://api-dev.novatech.co.uk/stock</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<p>None required.</p>
+<h3 id='response'>Response</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>skus</td>
+<td>An array of JSON objects containing stok information</td>
+</tr>
+<tr>
+<td>sku</td>
+<td>The sku of the product</td>
+</tr>
+<tr>
+<td>description</td>
+<td>The description of the product</td>
+</tr>
+<tr>
+<td>stock_level</td>
+<td>The current level of free stock available for ordering</td>
+</tr>
+<tr>
+<td>price</td>
+<td>The price of the product excluding VAT</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+Remember to include your authentication header!
+</aside>
+<h2 id='get-information-on-a-specific-sku'>Get Information on a Specific SKU</h2><pre class="highlight shell tab-shell"><code>curl --request GET <span class="se">\</span>
+  --url https://api-dev.novatech.co.uk/stock/TEST-SKU01
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api-dev.novatech.co.uk/stock/TEST-SKU01"</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre><pre class="highlight go tab-go"><code><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
+
+</span><span class="k">import</span><span class="x"> </span><span class="p">(</span><span class="x">
+    </span><span class="s">"fmt"</span><span class="x">
+    </span><span class="s">"net/http"</span><span class="x">
+    </span><span class="s">"io/ioutil"</span><span class="x">
+</span><span class="p">)</span><span class="x">
+
+</span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
+
+    </span><span class="n">url</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="s">"https://api-dev.novatech.co.uk/stock/TEST-SKU01"</span><span class="x">
+
+    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span><span class="x"> </span><span class="n">url</span><span class="p">,</span><span class="x"> </span><span class="no">nil</span><span class="p">)</span><span class="x">
+
+    </span><span class="n">res</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">DefaultClient</span><span class="o">.</span><span class="n">Do</span><span class="p">(</span><span class="n">req</span><span class="p">)</span><span class="x">
+
+    </span><span class="k">defer</span><span class="x"> </span><span class="n">res</span><span class="o">.</span><span class="n">Body</span><span class="o">.</span><span class="n">Close</span><span class="p">()</span><span class="x">
+    </span><span class="n">body</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">ioutil</span><span class="o">.</span><span class="n">ReadAll</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">Body</span><span class="p">)</span><span class="x">
+
+    </span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">res</span><span class="p">)</span><span class="x">
+    </span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="kt">string</span><span class="p">(</span><span class="n">body</span><span class="p">))</span><span class="x">
+
+</span><span class="p">}</span><span class="x">
+</span></code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TEST-SKU01"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example SKU 01"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"stock_level"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">314.99</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves current information about a specific SKU.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET https://api-dev.novatech.co.uk/stock/&lt;SKU&gt;</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>SKU</td>
+<td>The SKU of the product you wish to receive current information for.</td>
+</tr>
+</tbody></table>
+<h3 id='response-2'>Response</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>sku</td>
+<td>The sku of the product</td>
+</tr>
+<tr>
+<td>description</td>
+<td>The description of the product</td>
+</tr>
+<tr>
+<td>stock_level</td>
+<td>The current level of free stock available for ordering</td>
+</tr>
+<tr>
+<td>price</td>
+<td>The price of the product excluding VAT</td>
+</tr>
+</tbody></table>
+<h1 id='orders'>Orders</h1><h2 id='place-an-order'>Place an Order</h2><pre class="highlight shell tab-shell"><code>curl --request POST <span class="se">\</span>
+  --url https://api-dev.novatech.co.uk/order <span class="se">\</span>
+  --header <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  --data <span class="s1">'
+{
+  "order_number": "MONZ0001",
+  "deliver_to": {
+    "name": "Lindy Bishop",
+    "address_lines": [
+      "38 Finsbury Square",
+      "London"
+    ],
+    "postal_code": "EC2A 1PX",
+    "email_address": "lindy@monzo.com",
+    "phone_number": "+448008021456"
+  },
+  "order_lines": [
+    {
+      "sku": "TEST-SKU01",
+      "quantity": 1
+    },
+    {
+      "sku": "TEST-SKU02",
+      "quantity": 2
+    }
+  ]
+} '</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api-dev.novatech.co.uk/order"</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="s">"</span><span class="se">\n</span><span class="s">{</span><span class="se">\n</span><span class="s">  </span><span class="se">\"</span><span class="s">order_number</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">MONZ0001</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">  </span><span class="se">\"</span><span class="s">deliver_to</span><span class="se">\"</span><span class="s">: {</span><span class="se">\n</span><span class="s">     </span><span class="se">\"</span><span class="s">name</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">Lindy Bishop</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">     </span><span class="se">\"</span><span class="s">address_lines</span><span class="se">\"</span><span class="s">: [</span><span class="se">\n</span><span class="s">       </span><span class="se">\"</span><span class="s">38 Finsbury Square</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">       </span><span class="se">\"</span><span class="s">London</span><span class="se">\"\n</span><span class="s">     ],</span><span class="se">\n</span><span class="s">     </span><span class="se">\"</span><span class="s">postal_code</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">EC2A 1PX</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">     </span><span class="se">\"</span><span class="s">email_address</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">lindy@monzo.com</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">     </span><span class="se">\"</span><span class="s">phone_number</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">+448008021456</span><span class="se">\"\n</span><span class="s">  },</span><span class="se">\n</span><span class="s">  </span><span class="se">\"</span><span class="s">order_lines</span><span class="se">\"</span><span class="s">: [</span><span class="se">\n</span><span class="s">    {</span><span class="se">\n</span><span class="s">      </span><span class="se">\"</span><span class="s">sku</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">TEST-SKU01</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">      </span><span class="se">\"</span><span class="s">quantity</span><span class="se">\"</span><span class="s">: 1</span><span class="se">\n</span><span class="s">    },</span><span class="se">\n</span><span class="s">    {</span><span class="se">\n</span><span class="s">      </span><span class="se">\"</span><span class="s">sku</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">TEST-SKU02</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">      </span><span class="se">\"</span><span class="s">quantity</span><span class="se">\"</span><span class="s">: 2</span><span class="se">\n</span><span class="s">    }</span><span class="se">\n</span><span class="s">  ]</span><span class="se">\n</span><span class="s">} "</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre><pre class="highlight go tab-go"><code><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
+
+</span><span class="k">import</span><span class="x"> </span><span class="p">(</span><span class="x">
+    </span><span class="s">"fmt"</span><span class="x">
+    </span><span class="s">"strings"</span><span class="x">
+    </span><span class="s">"net/http"</span><span class="x">
+    </span><span class="s">"io/ioutil"</span><span class="x">
+</span><span class="p">)</span><span class="x">
+
+</span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
+
+    </span><span class="n">url</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="s">"https://api-dev.novatech.co.uk/order"</span><span class="x">
+
+    </span><span class="n">payload</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">strings</span><span class="o">.</span><span class="n">NewReader</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">{</span><span class="se">\n</span><span class="s">  </span><span class="se">\"</span><span class="s">order_number</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">MONZ0001</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">  </span><span class="se">\"</span><span class="s">deliver_to</span><span class="se">\"</span><span class="s">: {</span><span class="se">\n</span><span class="s">     </span><span class="se">\"</span><span class="s">name</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">Lindy Bishop</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">     </span><span class="se">\"</span><span class="s">address_lines</span><span class="se">\"</span><span class="s">: [</span><span class="se">\n</span><span class="s">       </span><span class="se">\"</span><span class="s">38 Finsbury Square</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">       </span><span class="se">\"</span><span class="s">London</span><span class="se">\"\n</span><span class="s">     ],</span><span class="se">\n</span><span class="s">     </span><span class="se">\"</span><span class="s">postal_code</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">EC2A 1PX</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">     </span><span class="se">\"</span><span class="s">email_address</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">lindy@monzo.com</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">     </span><span class="se">\"</span><span class="s">phone_number</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">+448008021456</span><span class="se">\"\n</span><span class="s">  },</span><span class="se">\n</span><span class="s">  </span><span class="se">\"</span><span class="s">order_lines</span><span class="se">\"</span><span class="s">: [</span><span class="se">\n</span><span class="s">    {</span><span class="se">\n</span><span class="s">      </span><span class="se">\"</span><span class="s">sku</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">TEST-SKU01</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">      </span><span class="se">\"</span><span class="s">quantity</span><span class="se">\"</span><span class="s">: 1</span><span class="se">\n</span><span class="s">    },</span><span class="se">\n</span><span class="s">    {</span><span class="se">\n</span><span class="s">      </span><span class="se">\"</span><span class="s">sku</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">TEST-SKU02</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">      </span><span class="se">\"</span><span class="s">quantity</span><span class="se">\"</span><span class="s">: 2</span><span class="se">\n</span><span class="s">    }</span><span class="se">\n</span><span class="s">  ]</span><span class="se">\n</span><span class="s">} "</span><span class="p">)</span><span class="x">
+
+    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span><span class="x"> </span><span class="n">url</span><span class="p">,</span><span class="x"> </span><span class="n">payload</span><span class="p">)</span><span class="x">
+
+    </span><span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="s">"Content-Type"</span><span class="p">,</span><span class="x"> </span><span class="s">"application/json"</span><span class="p">)</span><span class="x">
+
+    </span><span class="n">res</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">DefaultClient</span><span class="o">.</span><span class="n">Do</span><span class="p">(</span><span class="n">req</span><span class="p">)</span><span class="x">
+
+    </span><span class="k">defer</span><span class="x"> </span><span class="n">res</span><span class="o">.</span><span class="n">Body</span><span class="o">.</span><span class="n">Close</span><span class="p">()</span><span class="x">
+    </span><span class="n">body</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">ioutil</span><span class="o">.</span><span class="n">ReadAll</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">Body</span><span class="p">)</span><span class="x">
+
+    </span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">res</span><span class="p">)</span><span class="x">
+    </span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="kt">string</span><span class="p">(</span><span class="n">body</span><span class="p">))</span><span class="x">
+
+</span><span class="p">}</span><span class="x">
+</span></code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"trade_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MON024"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"order_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MONZ0001"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"novatech_order_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">6010361</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"order_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-09 09:04:00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"order_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ex_vat_total"</span><span class="p">:</span><span class="w"> </span><span class="mf">722.39</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"vat"</span><span class="p">:</span><span class="w"> </span><span class="mf">144.48</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"inc_vat_total"</span><span class="p">:</span><span class="w"> </span><span class="mf">866.87</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"order_lines"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EXAMPLE SKU 01"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">392.05</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ex_vat_total"</span><span class="p">:</span><span class="w"> </span><span class="mf">392.05</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"vat"</span><span class="p">:</span><span class="w"> </span><span class="mf">78.41</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"inc_vat_total"</span><span class="p">:</span><span class="w"> </span><span class="mf">470.46</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TEST-SKU01"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EXAMPLE SKU 02"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">165.17</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ex_vat_total"</span><span class="p">:</span><span class="w"> </span><span class="mf">330.34</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"vat"</span><span class="p">:</span><span class="w"> </span><span class="mf">66.07</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"inc_vat_total"</span><span class="p">:</span><span class="w"> </span><span class="mf">396.41</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TEST-SKU02"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"*         ** NEXT DAY **"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ex_vat_total"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"vat"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"inc_vat_total"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELI01"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint will place an order with Novatech on your credit account.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>POST https://api-dev.novatech.co.uk/order</code></p>
+<h3 id='body-parameters-2'>Body Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>order_number</td>
+<td>yes</td>
+<td>Your purchase order reference. Max length 14</td>
+</tr>
+<tr>
+<td>deliver_to</td>
+<td>yes</td>
+<td>JSON object containing delivery information</td>
+</tr>
+<tr>
+<td>name</td>
+<td>yes</td>
+<td>The name of the person the order is to be delivered to. Min length 5, max length 30</td>
+</tr>
+<tr>
+<td>address_lines</td>
+<td>yes</td>
+<td>An array of address lines. There must be at least one line in the array. Max length 30, max number of lines 4</td>
+</tr>
+<tr>
+<td>postal_code</td>
+<td>yes</td>
+<td>The post code of the address for delivery. Max length 8</td>
+</tr>
+<tr>
+<td>email_address</td>
+<td>yes</td>
+<td>The email address of the recipient. Max length 254</td>
+</tr>
+<tr>
+<td>phone_number</td>
+<td>yes</td>
+<td>The phone number of the recipient. Max length 30</td>
+</tr>
+<tr>
+<td>order_lines</td>
+<td>yes</td>
+<td>An array of JSON objects identifying which products and their quantity you wish to order. There must be at least one object in the array.</td>
+</tr>
+<tr>
+<td>sku</td>
+<td>yes</td>
+<td>The SKU of the product you wish to order. Max length 10</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>yes</td>
+<td>The quantity of the SKU you wish to order. Min 1</td>
+</tr>
+</tbody></table>
+<h3 id='response-3'>Response</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>trade_code</td>
+<td>Novatech&#39;s internal code for your credit account</td>
+</tr>
+<tr>
+<td>order_number</td>
+<td>Your purchase order number that you passed in with the order request</td>
+</tr>
+<tr>
+<td>novatech_order_number</td>
+<td>Our unique order number. You will need this to lookup information on the order later</td>
+</tr>
+<tr>
+<td>order_date</td>
+<td>The date the order was placed on our system</td>
+</tr>
+<tr>
+<td>order_status</td>
+<td>The current status of the order. A detailed list of order statuses is given below</td>
+</tr>
+<tr>
+<td>ex_vat_total</td>
+<td>The ex VAT total of the order</td>
+</tr>
+<tr>
+<td>vat</td>
+<td>The amount of VAT payable on the order</td>
+</tr>
+<tr>
+<td>inc_vat_amount</td>
+<td>The inc VAT total of the order</td>
+</tr>
+<tr>
+<td>order_lines</td>
+<td>An array of JSOn objects detailing each line on the order</td>
+</tr>
+<tr>
+<td>status</td>
+<td>The current status of the order line. A detailed list of order status is given below</td>
+</tr>
+<tr>
+<td>description</td>
+<td>The description of the product on this order line</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>The quantity of product ordered on this line</td>
+</tr>
+<tr>
+<td>price</td>
+<td>The ex VAT price of the product on this line</td>
+</tr>
+<tr>
+<td>ex_vat_total</td>
+<td>The total ex VAT price of the product on this line i.e. quantity * price</td>
+</tr>
+<tr>
+<td>vat</td>
+<td>The amount of VAT payable on this order line</td>
+</tr>
+<tr>
+<td>inc_vat_total</td>
+<td>The inc VAT total amount of the product on this line i.e. quantity * (price + vat)</td>
+</tr>
+<tr>
+<td>sku</td>
+<td>The product SKU on this order line</td>
+</tr>
+</tbody></table>
+<h3 id='order-statuses'>Order Statuses</h3>
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>A</td>
+<td>All stock on the order is allocated and is awaiting approval for invoicing</td>
+</tr>
+<tr>
+<td>B</td>
+<td>One or more items is currently out of stock</td>
+</tr>
+<tr>
+<td>D</td>
+<td>The order has been deleted</td>
+</tr>
+<tr>
+<td>H</td>
+<td>The order is on Hold. Speak with your account manager</td>
+</tr>
+<tr>
+<td>I</td>
+<td>The order has invoiced</td>
+</tr>
+</tbody></table>
+<h3 id='order-line-statuses'>Order Line Statuses</h3>
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>A</td>
+<td>The line is fully allocated and awaiting invoicing</td>
+</tr>
+<tr>
+<td>B</td>
+<td>The item on this line is currently out of stock</td>
+</tr>
+<tr>
+<td>P</td>
+<td>Partially allocated stock. We do not have enough stock to fulfill the total quantity on this line</td>
+</tr>
+<tr>
+<td>H</td>
+<td>The line is on Hold. Speak with your account manager</td>
+</tr>
+<tr>
+<td>I</td>
+<td>The line has invoiced</td>
+</tr>
+<tr>
+<td>D</td>
+<td>The line has been deleted</td>
+</tr>
+</tbody></table>
+<h2 id='lookup-order-information'>Lookup Order Information</h2><pre class="highlight shell tab-shell"><code>curl --request GET <span class="se">\</span>
+  --url https://api-dev.novatech.co.uk/order/6010361
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api-dev.novatech.co.uk/order/6010361"</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre><pre class="highlight go tab-go"><code><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
+
+</span><span class="k">import</span><span class="x"> </span><span class="p">(</span><span class="x">
+    </span><span class="s">"fmt"</span><span class="x">
+    </span><span class="s">"net/http"</span><span class="x">
+    </span><span class="s">"io/ioutil"</span><span class="x">
+</span><span class="p">)</span><span class="x">
+
+</span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
+
+    </span><span class="n">url</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="s">"https://api-dev.novatech.co.uk/order/6010361"</span><span class="x">
+
+    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span><span class="x"> </span><span class="n">url</span><span class="p">,</span><span class="x"> </span><span class="no">nil</span><span class="p">)</span><span class="x">
+
+    </span><span class="n">res</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">DefaultClient</span><span class="o">.</span><span class="n">Do</span><span class="p">(</span><span class="n">req</span><span class="p">)</span><span class="x">
+
+    </span><span class="k">defer</span><span class="x"> </span><span class="n">res</span><span class="o">.</span><span class="n">Body</span><span class="o">.</span><span class="n">Close</span><span class="p">()</span><span class="x">
+    </span><span class="n">body</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">ioutil</span><span class="o">.</span><span class="n">ReadAll</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">Body</span><span class="p">)</span><span class="x">
+
+    </span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">res</span><span class="p">)</span><span class="x">
+    </span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="kt">string</span><span class="p">(</span><span class="n">body</span><span class="p">))</span><span class="x">
+
+</span><span class="p">}</span><span class="x">
+</span></code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"trade_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MON024"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"order_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MONZ0001"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"novatech_order_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">6010361</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"order_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-09 09:04:00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"order_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ex_vat_total"</span><span class="p">:</span><span class="w"> </span><span class="mf">722.39</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"vat"</span><span class="p">:</span><span class="w"> </span><span class="mf">144.48</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"inc_vat_total"</span><span class="p">:</span><span class="w"> </span><span class="mf">866.87</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"order_lines"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EXAMPLE SKU 01"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">392.05</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ex_vat_total"</span><span class="p">:</span><span class="w"> </span><span class="mf">392.05</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"vat"</span><span class="p">:</span><span class="w"> </span><span class="mf">78.41</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"inc_vat_total"</span><span class="p">:</span><span class="w"> </span><span class="mf">470.46</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TEST-SKU01"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EXAMPLE SKU 02"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">165.17</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ex_vat_total"</span><span class="p">:</span><span class="w"> </span><span class="mf">330.34</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"vat"</span><span class="p">:</span><span class="w"> </span><span class="mf">66.07</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"inc_vat_total"</span><span class="p">:</span><span class="w"> </span><span class="mf">396.41</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TEST-SKU02"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"*         ** NEXT DAY **"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"ex_vat_total"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"vat"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"inc_vat_total"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELI01"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"dispatch_info"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"dispatch_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">3089457</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"dispatch_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-09 00:00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"box_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"item_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"courier_service"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ParcelForce"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"tracking_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.parcelforce.com/track-trace?trackNumber=NX1212121"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"tracking_info"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TEST-SKU01"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"track_no"</span><span class="p">:</span><span class="w"> </span><span class="mi">12006527</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date_tracked"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-09 13:20:34"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TEST-SKU02"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"track_no"</span><span class="p">:</span><span class="w"> </span><span class="mi">11824374</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"serial_no"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7441474-001"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date_tracked"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-09 13:20:34"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TEST-SKU02"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"track_no"</span><span class="p">:</span><span class="w"> </span><span class="mi">11824374</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"serial_no"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7441474-002"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date_tracked"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-09 13:20:34"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint allows you to lookup information on any order placed on your credit account.</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>GET https://api-dev.novatech.co.uk/order/&lt;ORD_NO&gt;</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ORD_NO</td>
+<td>Novatech&#39;s order number you received when you placed the order</td>
+</tr>
+</tbody></table>
+<h3 id='response-4'>Response</h3>
+<p>The main body of the response is the same as detailed above when placing an order, however it may contain some extra information if the order has invoiced and dispatched. If the order has not yet invoiced and dispatched then these fields will not be present.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>dispatch_info</td>
+<td>A JSON object containg information about the dispatch of the order. The information may not be available</td>
+</tr>
+<tr>
+<td>dispatch_number</td>
+<td>Novatech internal dispatch ID</td>
+</tr>
+<tr>
+<td>dispatch_date</td>
+<td>The date the parcel was dispatched</td>
+</tr>
+<tr>
+<td>box_number</td>
+<td>The box number of the parcel</td>
+</tr>
+<tr>
+<td>item_number</td>
+<td>The number of items in the box</td>
+</tr>
+<tr>
+<td>courier_service</td>
+<td>Which courier service was used to dispatch the goods</td>
+</tr>
+<tr>
+<td>tracking_url</td>
+<td>Depending on the courier service a tracking URL may be provided to allow you to track your parcel</td>
+</tr>
+<tr>
+<td>tracking_info</td>
+<td>A JSON object containing tracking information of the goods on the order i.e serial numbers</td>
+</tr>
+<tr>
+<td>sku</td>
+<td>The sku of the product which was tracked</td>
+</tr>
+<tr>
+<td>track_no</td>
+<td>Novatech internal tracking number</td>
+</tr>
+<tr>
+<td>serial_no</td>
+<td>The serial number of the product</td>
+</tr>
+<tr>
+<td>date_tracked</td>
+<td>The date the item was scanned</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+please note that the dispatch_info, tracking_url, tracking_info, and serial_no fields may not be present.
+</aside>
+<h1 id='errors'>Errors</h1>
+<blockquote>
+<p>Any errors will be returned in the following JSON format:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"msg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HTTP 415 Unsupported Media Type"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">415</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-09 10:09:17"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unsupported Media Type"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>If the error relates to JSON Objects failing validation i.e a field is too long or has an invalid quantity then the JSON will be structed like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"deliverTo.name size must be between 5 and 30"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"orderLineList[0].quantity must be greater than or equal to 1"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-09 10:13:19"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bad Request"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The Novatech API uses the following error codes:</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request -- Your request is invalid.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized -- Your Token is invalid / expired / missing</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found -- The URL is invalid, or the order / SKU you are attempting to look up does not exist</td>
+</tr>
+<tr>
+<td>405</td>
+<td>Method Not Allowed -- You tried to access an endpoint with an invalid method.</td>
+</tr>
+<tr>
+<td>415</td>
+<td>Unsupported Media Type -- You requested a format that isn&#39;t json.</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">cURL</a>
+                <a href="#" data-language-name="python">Python</a>
+                <a href="#" data-language-name="go">Go</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
