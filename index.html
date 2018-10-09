@@ -286,12 +286,12 @@ For brevity, the authorization header will be omitted from the sidebar code exam
 <p>To authorize, use this code:</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl --request POST <span class="se">\</span>
-  --url https://api-dev.novatech.co.uk/token/get <span class="se">\</span>
+  --url https://test-api.novatech.co.uk/token/get <span class="se">\</span>
   --header <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   --data <span class="s1">'{ "email":"test.email@novatech.co.uk", "password":"aVeryLongAndSecurePassword" }'</span>
 </code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api-dev.novatech.co.uk/token/get"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://test-api.novatech.co.uk/token/get"</span>
 
 <span class="n">payload</span> <span class="o">=</span> <span class="s">"{ </span><span class="se">\"</span><span class="s">email</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">test.email@novatech.co.uk</span><span class="se">\"</span><span class="s">, </span><span class="se">\"</span><span class="s">password</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">aVeryLongAndSecurePassword</span><span class="se">\"</span><span class="s"> }"</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">}</span>
@@ -310,7 +310,7 @@ For brevity, the authorization header will be omitted from the sidebar code exam
 
 </span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
 
-    </span><span class="n">url</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="s">"https://api-dev.novatech.co.uk/token/get"</span><span class="x">
+    </span><span class="n">url</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="s">"https://test-api.novatech.co.uk/token/get"</span><span class="x">
 
     </span><span class="n">payload</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">strings</span><span class="o">.</span><span class="n">NewReader</span><span class="p">(</span><span class="s">"{ </span><span class="se">\"</span><span class="s">email</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">test.email@novatech.co.uk</span><span class="se">\"</span><span class="s">, </span><span class="se">\"</span><span class="s">password</span><span class="se">\"</span><span class="s">:</span><span class="se">\"</span><span class="s">aVeryLongAndSecurePassword</span><span class="se">\"</span><span class="s"> }"</span><span class="p">)</span><span class="x">
 
@@ -336,7 +336,7 @@ For brevity, the authorization header will be omitted from the sidebar code exam
   </span><span class="s2">"expires_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-08 14:50:24"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='http-request'>HTTP Request</h3>
-<p><code>POST https://api-dev.novatech.co.uk/token/get</code></p>
+<p><code>POST https://test-api.novatech.co.uk/token/get</code></p>
 <h3 id='body-parameters'>Body Parameters</h3>
 <table><thead>
 <tr>
@@ -361,10 +361,10 @@ For brevity, the authorization header will be omitted from the sidebar code exam
 You must replace the email and password with your specific account details.
 </aside>
 <h1 id='stock'>Stock</h1><h2 id='get-all-current-stock-information'>Get All Current Stock Information</h2><pre class="highlight shell tab-shell"><code>curl --request GET <span class="se">\</span>
-  --url https://api-dev.novatech.co.uk/stock
+  --url https://test-api.novatech.co.uk/stock
 </code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api-dev.novatech.co.uk/stock"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://test-api.novatech.co.uk/stock"</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
 
@@ -379,7 +379,7 @@ You must replace the email and password with your specific account details.
 
 </span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
 
-    </span><span class="n">url</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="s">"https://api-dev.novatech.co.uk/stock"</span><span class="x">
+    </span><span class="n">url</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="s">"https://test-api.novatech.co.uk/stock"</span><span class="x">
 
     </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span><span class="x"> </span><span class="n">url</span><span class="p">,</span><span class="x"> </span><span class="no">nil</span><span class="p">)</span><span class="x">
 
@@ -421,7 +421,7 @@ You must replace the email and password with your specific account details.
 </span></code></pre>
 <p>This endpoint retrieves all stock information for SKUs associated with your API account.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET https://api-dev.novatech.co.uk/stock</code></p>
+<p><code>GET https://test-api.novatech.co.uk/stock</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <p>None required.</p>
 <h3 id='response'>Response</h3>
@@ -457,10 +457,10 @@ You must replace the email and password with your specific account details.
 Remember to include your authentication header!
 </aside>
 <h2 id='get-information-on-a-specific-sku'>Get Information on a Specific SKU</h2><pre class="highlight shell tab-shell"><code>curl --request GET <span class="se">\</span>
-  --url https://api-dev.novatech.co.uk/stock/TEST-SKU01
+  --url https://test-api.novatech.co.uk/stock/TEST-SKU01
 </code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api-dev.novatech.co.uk/stock/TEST-SKU01"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://test-api.novatech.co.uk/stock/TEST-SKU01"</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
 
@@ -475,7 +475,7 @@ Remember to include your authentication header!
 
 </span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
 
-    </span><span class="n">url</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="s">"https://api-dev.novatech.co.uk/stock/TEST-SKU01"</span><span class="x">
+    </span><span class="n">url</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="s">"https://test-api.novatech.co.uk/stock/TEST-SKU01"</span><span class="x">
 
     </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span><span class="x"> </span><span class="n">url</span><span class="p">,</span><span class="x"> </span><span class="no">nil</span><span class="p">)</span><span class="x">
 
@@ -501,7 +501,7 @@ Remember to include your authentication header!
 </span></code></pre>
 <p>This endpoint retrieves current information about a specific SKU.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>GET https://api-dev.novatech.co.uk/stock/&lt;SKU&gt;</code></p>
+<p><code>GET https://test-api.novatech.co.uk/stock/&lt;SKU&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -539,7 +539,7 @@ Remember to include your authentication header!
 </tr>
 </tbody></table>
 <h1 id='orders'>Orders</h1><h2 id='place-an-order'>Place an Order</h2><pre class="highlight shell tab-shell"><code>curl --request POST <span class="se">\</span>
-  --url https://api-dev.novatech.co.uk/order <span class="se">\</span>
+  --url https://test-api.novatech.co.uk/order <span class="se">\</span>
   --header <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
   --data <span class="s1">'
 {
@@ -567,7 +567,7 @@ Remember to include your authentication header!
 } '</span>
 </code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api-dev.novatech.co.uk/order"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://test-api.novatech.co.uk/order"</span>
 
 <span class="n">payload</span> <span class="o">=</span> <span class="s">"</span><span class="se">\n</span><span class="s">{</span><span class="se">\n</span><span class="s">  </span><span class="se">\"</span><span class="s">order_number</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">MONZ0001</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">  </span><span class="se">\"</span><span class="s">deliver_to</span><span class="se">\"</span><span class="s">: {</span><span class="se">\n</span><span class="s">     </span><span class="se">\"</span><span class="s">name</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">Lindy Bishop</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">     </span><span class="se">\"</span><span class="s">address_lines</span><span class="se">\"</span><span class="s">: [</span><span class="se">\n</span><span class="s">       </span><span class="se">\"</span><span class="s">38 Finsbury Square</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">       </span><span class="se">\"</span><span class="s">London</span><span class="se">\"\n</span><span class="s">     ],</span><span class="se">\n</span><span class="s">     </span><span class="se">\"</span><span class="s">postal_code</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">EC2A 1PX</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">     </span><span class="se">\"</span><span class="s">email_address</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">lindy@monzo.com</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">     </span><span class="se">\"</span><span class="s">phone_number</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">+448008021456</span><span class="se">\"\n</span><span class="s">  },</span><span class="se">\n</span><span class="s">  </span><span class="se">\"</span><span class="s">order_lines</span><span class="se">\"</span><span class="s">: [</span><span class="se">\n</span><span class="s">    {</span><span class="se">\n</span><span class="s">      </span><span class="se">\"</span><span class="s">sku</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">TEST-SKU01</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">      </span><span class="se">\"</span><span class="s">quantity</span><span class="se">\"</span><span class="s">: 1</span><span class="se">\n</span><span class="s">    },</span><span class="se">\n</span><span class="s">    {</span><span class="se">\n</span><span class="s">      </span><span class="se">\"</span><span class="s">sku</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">TEST-SKU02</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">      </span><span class="se">\"</span><span class="s">quantity</span><span class="se">\"</span><span class="s">: 2</span><span class="se">\n</span><span class="s">    }</span><span class="se">\n</span><span class="s">  ]</span><span class="se">\n</span><span class="s">} "</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">}</span>
@@ -586,7 +586,7 @@ Remember to include your authentication header!
 
 </span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
 
-    </span><span class="n">url</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="s">"https://api-dev.novatech.co.uk/order"</span><span class="x">
+    </span><span class="n">url</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="s">"https://test-api.novatech.co.uk/order"</span><span class="x">
 
     </span><span class="n">payload</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">strings</span><span class="o">.</span><span class="n">NewReader</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">{</span><span class="se">\n</span><span class="s">  </span><span class="se">\"</span><span class="s">order_number</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">MONZ0001</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">  </span><span class="se">\"</span><span class="s">deliver_to</span><span class="se">\"</span><span class="s">: {</span><span class="se">\n</span><span class="s">     </span><span class="se">\"</span><span class="s">name</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">Lindy Bishop</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">     </span><span class="se">\"</span><span class="s">address_lines</span><span class="se">\"</span><span class="s">: [</span><span class="se">\n</span><span class="s">       </span><span class="se">\"</span><span class="s">38 Finsbury Square</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">       </span><span class="se">\"</span><span class="s">London</span><span class="se">\"\n</span><span class="s">     ],</span><span class="se">\n</span><span class="s">     </span><span class="se">\"</span><span class="s">postal_code</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">EC2A 1PX</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">     </span><span class="se">\"</span><span class="s">email_address</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">lindy@monzo.com</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">     </span><span class="se">\"</span><span class="s">phone_number</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">+448008021456</span><span class="se">\"\n</span><span class="s">  },</span><span class="se">\n</span><span class="s">  </span><span class="se">\"</span><span class="s">order_lines</span><span class="se">\"</span><span class="s">: [</span><span class="se">\n</span><span class="s">    {</span><span class="se">\n</span><span class="s">      </span><span class="se">\"</span><span class="s">sku</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">TEST-SKU01</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">      </span><span class="se">\"</span><span class="s">quantity</span><span class="se">\"</span><span class="s">: 1</span><span class="se">\n</span><span class="s">    },</span><span class="se">\n</span><span class="s">    {</span><span class="se">\n</span><span class="s">      </span><span class="se">\"</span><span class="s">sku</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">TEST-SKU02</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">      </span><span class="se">\"</span><span class="s">quantity</span><span class="se">\"</span><span class="s">: 2</span><span class="se">\n</span><span class="s">    }</span><span class="se">\n</span><span class="s">  ]</span><span class="se">\n</span><span class="s">} "</span><span class="p">)</span><span class="x">
 
@@ -652,7 +652,7 @@ Remember to include your authentication header!
 </span></code></pre>
 <p>This endpoint will place an order with Novatech on your credit account.</p>
 <h3 id='http-request-4'>HTTP Request</h3>
-<p><code>POST https://api-dev.novatech.co.uk/order</code></p>
+<p><code>POST https://test-api.novatech.co.uk/order</code></p>
 <h3 id='body-parameters-2'>Body Parameters</h3>
 <table><thead>
 <tr>
@@ -849,10 +849,10 @@ Remember to include your authentication header!
 </tr>
 </tbody></table>
 <h2 id='lookup-order-information'>Lookup Order Information</h2><pre class="highlight shell tab-shell"><code>curl --request GET <span class="se">\</span>
-  --url https://api-dev.novatech.co.uk/order/6010361
+  --url https://test-api.novatech.co.uk/order/6010361
 </code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api-dev.novatech.co.uk/order/6010361"</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://test-api.novatech.co.uk/order/6010361"</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
 
@@ -867,7 +867,7 @@ Remember to include your authentication header!
 
 </span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
 
-    </span><span class="n">url</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="s">"https://api-dev.novatech.co.uk/order/6010361"</span><span class="x">
+    </span><span class="n">url</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="s">"https://test-api.novatech.co.uk/order/6010361"</span><span class="x">
 
     </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span><span class="x"> </span><span class="n">url</span><span class="p">,</span><span class="x"> </span><span class="no">nil</span><span class="p">)</span><span class="x">
 
@@ -958,7 +958,7 @@ Remember to include your authentication header!
 </span></code></pre>
 <p>This endpoint allows you to lookup information on any order placed on your credit account.</p>
 <h3 id='http-request-5'>HTTP Request</h3>
-<p><code>GET https://api-dev.novatech.co.uk/order/&lt;ORD_NO&gt;</code></p>
+<p><code>GET https://test-api.novatech.co.uk/order/&lt;ORD_NO&gt;</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
 <tr>
