@@ -229,6 +229,9 @@
                   <li>
                     <a href="#get-token" class="toc-h2 toc-link" data-title="Get Token">Get Token</a>
                   </li>
+                  <li>
+                    <a href="#change-password" class="toc-h2 toc-link" data-title="Change Password">Change Password</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -335,7 +338,9 @@ For brevity, the authorization header will be omitted from the sidebar code exam
   </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkZWFuLndpbGxpYW1zQG5vdmF0ZWNoLmNvLnVrIiwidG9rZW4iOiIxMDNkMTFhNC1jODdhLTQxMDgtOTIwNS1jMTUxZDM4YjY3YmQiLCJleHAiOjE1MzkwMDY2MjR9.19DQ_uwE5Ye1ALrwiW9o7wsMhoetUqDLQMNcFCxwtEc"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"expires_on"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-08 14:50:24"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+</span></code></pre>
+<p>Use this endpoint to authenticate your user credentials and receive a token to use in all subsequent requests.</p>
+<h3 id='http-request'>HTTP Request</h3>
 <p><code>POST https://test-api.novatech.co.uk/token/get</code></p>
 <h3 id='body-parameters'>Body Parameters</h3>
 <table><thead>
@@ -359,6 +364,91 @@ For brevity, the authorization header will be omitted from the sidebar code exam
 
 <aside class="notice">
 You must replace the email and password with your specific account details.
+</aside>
+<h2 id='change-password'>Change Password</h2>
+<blockquote>
+<p>To change the password used to authenticate in order to receive a token, use this code:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --request POST <span class="se">\</span>
+  --url https://test-api.novatech.co.uk/token/change-password <span class="se">\</span>
+  --header <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  --data <span class="s1">'{ "email": "test.email@novatech.co.uk", "current_password": "aVeryLongAndSecurePassword", "new_password": "AnEvenLongerAndMoreSecurePasswordThanBefore" }'</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://test-api.novatech.co.uk/token/change-password"</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="s">"{ </span><span class="se">\"</span><span class="s">email</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">test.email@novatech.co.uk</span><span class="se">\"</span><span class="s">, </span><span class="se">\"</span><span class="s">current_password</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">aVeryLongAndSecurePassword</span><span class="se">\"</span><span class="s">, </span><span class="se">\"</span><span class="s">new_password</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">AnEvenLongerAndMoreSecurePasswordThanBefore</span><span class="se">\"</span><span class="s"> }"</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre><pre class="highlight go tab-go"><code><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
+
+</span><span class="k">import</span><span class="x"> </span><span class="p">(</span><span class="x">
+    </span><span class="s">"fmt"</span><span class="x">
+    </span><span class="s">"strings"</span><span class="x">
+    </span><span class="s">"net/http"</span><span class="x">
+    </span><span class="s">"io/ioutil"</span><span class="x">
+</span><span class="p">)</span><span class="x">
+
+</span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
+
+    </span><span class="n">url</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="s">"https://test-api.novatech.co.uk/token/change-password"</span><span class="x">
+
+    </span><span class="n">payload</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">strings</span><span class="o">.</span><span class="n">NewReader</span><span class="p">(</span><span class="s">"{ </span><span class="se">\"</span><span class="s">email</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">test.email@novatech.co.uk</span><span class="se">\"</span><span class="s">, </span><span class="se">\"</span><span class="s">current_password</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">aVeryLongAndSecurePassword</span><span class="se">\"</span><span class="s">, </span><span class="se">\"</span><span class="s">new_password</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">AnEvenLongerAndMoreSecurePasswordThanBefore</span><span class="se">\"</span><span class="s"> }"</span><span class="p">)</span><span class="x">
+
+    </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span><span class="x"> </span><span class="n">url</span><span class="p">,</span><span class="x"> </span><span class="n">payload</span><span class="p">)</span><span class="x">
+
+    </span><span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="s">"Content-Type"</span><span class="p">,</span><span class="x"> </span><span class="s">"application/json"</span><span class="p">)</span><span class="x">
+
+    </span><span class="n">res</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">DefaultClient</span><span class="o">.</span><span class="n">Do</span><span class="p">(</span><span class="n">req</span><span class="p">)</span><span class="x">
+
+    </span><span class="k">defer</span><span class="x"> </span><span class="n">res</span><span class="o">.</span><span class="n">Body</span><span class="o">.</span><span class="n">Close</span><span class="p">()</span><span class="x">
+    </span><span class="n">body</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">ioutil</span><span class="o">.</span><span class="n">ReadAll</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">Body</span><span class="p">)</span><span class="x">
+
+    </span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">res</span><span class="p">)</span><span class="x">
+    </span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="kt">string</span><span class="p">(</span><span class="n">body</span><span class="p">))</span><span class="x">
+
+</span><span class="p">}</span><span class="x">
+</span></code></pre>
+<blockquote>
+<p>Upon successful authentication, and the password being changed, you will receive back JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Use this endpoint to change the password associated with your account.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST https://test-api.novatech.co.uk/token/change-password</code></p>
+<h3 id='body-parameters-2'>Body Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email</td>
+<td>yes</td>
+<td>The username/email address for your API account</td>
+</tr>
+<tr>
+<td>current_password</td>
+<td>yes</td>
+<td>The current password for your account</td>
+</tr>
+<tr>
+<td>new_password</td>
+<td>yes</td>
+<td>The password which you wish to change to. Min length 16, max length 50</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+Changing your password will invalidate all tokens currently associated with your account, regardless of their current expiry dates.
 </aside>
 <h1 id='stock'>Stock</h1><h2 id='get-all-current-stock-information'>Get All Current Stock Information</h2><pre class="highlight shell tab-shell"><code>curl --request GET <span class="se">\</span>
   --url https://test-api.novatech.co.uk/stock
@@ -420,7 +510,7 @@ You must replace the email and password with your specific account details.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves all stock information for SKUs associated with your API account.</p>
-<h3 id='http-request-2'>HTTP Request</h3>
+<h3 id='http-request-3'>HTTP Request</h3>
 <p><code>GET https://test-api.novatech.co.uk/stock</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <p>None required.</p>
@@ -500,7 +590,7 @@ Remember to include your authentication header!
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves current information about a specific SKU.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h3 id='http-request-4'>HTTP Request</h3>
 <p><code>GET https://test-api.novatech.co.uk/stock/&lt;SKU&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
@@ -651,9 +741,9 @@ Remember to include your authentication header!
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint will place an order with Novatech on your credit account.</p>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h3 id='http-request-5'>HTTP Request</h3>
 <p><code>POST https://test-api.novatech.co.uk/order</code></p>
-<h3 id='body-parameters-2'>Body Parameters</h3>
+<h3 id='body-parameters-3'>Body Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -957,7 +1047,7 @@ Remember to include your authentication header!
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint allows you to lookup information on any order placed on your credit account.</p>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h3 id='http-request-6'>HTTP Request</h3>
 <p><code>GET https://test-api.novatech.co.uk/order/&lt;ORD_NO&gt;</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
@@ -1031,7 +1121,7 @@ Remember to include your authentication header!
 </tbody></table>
 
 <aside class="notice">
-please note that the dispatch_info, tracking_url, tracking_info, and serial_no fields may not be present.
+Please note that the dispatch_info, tracking_url, tracking_info, and serial_no fields may not be present.
 </aside>
 <h1 id='errors'>Errors</h1>
 <blockquote>
