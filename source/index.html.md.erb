@@ -100,6 +100,8 @@ func main() {
 }
 ```
 
+Use this endpoint to authenticate your user credentials and receive a token to use in all subsequent requests.
+
 ### HTTP Request
 
 `POST <%= config[:api_endpoint] %>/token/get`
@@ -113,6 +115,87 @@ password | yes | The password for your account
 
 <aside class="notice">
 You must replace the email and password with your specific account details.
+</aside>
+
+## Change Password
+
+> To change the password used to authenticate in order to receive a token, use this code:
+
+```shell
+curl --request POST \
+  --url <%= config[:api_endpoint] %>/token/change-password \
+  --header 'Content-Type: application/json' \
+  --data '{ "email": "<%= config[:test_email] %>", "current_password": "<%= config[:test_password] %>", "new_password": "AnEvenLongerAndMoreSecurePasswordThanBefore" }'
+```
+
+```python
+import requests
+
+url = "<%= config[:api_endpoint] %>/token/change-password"
+
+payload = "{ \"email\": \"<%= config[:test_email] %>\", \"current_password\": \"<%= config[:test_password] %>\", \"new_password\": \"AnEvenLongerAndMoreSecurePasswordThanBefore\" }"
+headers = {'Content-Type': 'application/json'}
+
+response = requests.request("POST", url, data=payload, headers=headers)
+
+print(response.text)
+```
+
+```go
+package main
+
+import (
+	"fmt"
+	"strings"
+	"net/http"
+	"io/ioutil"
+)
+
+func main() {
+
+	url := "<%= config[:api_endpoint] %>/token/change-password"
+
+	payload := strings.NewReader("{ \"email\": \"<%= config[:test_email] %>\", \"current_password\": \"<%= config[:test_password] %>\", \"new_password\": \"AnEvenLongerAndMoreSecurePasswordThanBefore\" }")
+
+	req, _ := http.NewRequest("POST", url, payload)
+
+	req.Header.Add("Content-Type", "application/json")
+
+	res, _ := http.DefaultClient.Do(req)
+
+	defer res.Body.Close()
+	body, _ := ioutil.ReadAll(res.Body)
+
+	fmt.Println(res)
+	fmt.Println(string(body))
+
+}
+```
+
+> Upon successful authentication, and the password being changed, you will receive back JSON structured like this:
+
+```json
+{
+  "success": true
+}
+```
+
+Use this endpoint to change the password associated with your account.
+
+### HTTP Request
+
+`POST <%= config[:api_endpoint] %>/token/change-password`
+
+### Body Parameters
+
+Parameter | Required | Description
+----------|----------|------------
+email | yes | The username/email address for your API account
+current_password | yes | The current password for your account
+new_password | yes | The password which you wish to change to. Min length 16, max length 50
+
+<aside class="warning">
+Changing your password will invalidate all tokens currently associated with your account, regardless of their current expiry dates.
 </aside>
 
 # Stock
@@ -626,6 +709,6 @@ serial_no | The serial number of the product
 date_tracked | The date the item was scanned
 
 <aside class="notice">
-please note that the dispatch_info, tracking_url, tracking_info, and serial_no fields may not be present.
+Please note that the dispatch_info, tracking_url, tracking_info, and serial_no fields may not be present.
 </aside>
 
