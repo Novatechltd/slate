@@ -11,7 +11,7 @@
 }
 ```
 
-> If the error relates to JSON Objects failing validation i.e a field is too long or has an invalid quantity then the JSON will be structed like this:
+> If the error relates to JSON Objects failing validation i.e. a field is too long or has an invalid quantity then the JSON will be structured like this:
 
 ```json
 {
@@ -34,4 +34,4 @@ Error Code | Meaning
 404 | Not Found -- The URL is invalid, or the order / SKU you are attempting to look up does not exist
 405 | Method Not Allowed -- You tried to access an endpoint with an invalid method.
 415 | Unsupported Media Type -- You requested a format that isn't json.
-500 | Internal Server Error -- We had a problem with our server. Try again later.
+500 | Internal Server Error -- We've had a problem with our server. Try again later.
