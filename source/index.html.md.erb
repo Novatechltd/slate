@@ -108,7 +108,7 @@ Use this endpoint to authenticate your user credentials and receive a token to u
 
 ### Body Parameters
 
-Parameter | Required | Description
+Parameter | Required? | Description
 ----------|----------|------------
 email | yes | The username/email address for your API account
 password | yes | The password for your account
@@ -558,6 +558,92 @@ H | The line is on Hold. Speak with your account manager
 I | The line has invoiced
 D | The line has been deleted
 
+## Get All Orders Summary
+
+```shell
+curl --request GET \
+  --url <%= config[:api_endpoint] %>/orders
+```
+
+```python
+import requests
+
+url = "<%= config[:api_endpoint] %>/orders"
+
+response = requests.request("GET", url)
+
+print(response.text)
+```
+
+```go
+package main
+
+import (
+	"fmt"
+	"net/http"
+	"io/ioutil"
+)
+
+func main() {
+
+	url := "<%= config[:api_endpoint] %>/orders"
+
+	req, _ := http.NewRequest("GET", url, nil)
+
+	res, _ := http.DefaultClient.Do(req)
+
+	defer res.Body.Close()
+	body, _ := ioutil.ReadAll(res.Body)
+
+	fmt.Println(res)
+	fmt.Println(string(body))
+
+}
+```
+
+> The above command returns JSON structured like the following:
+
+```json
+{
+  "orders": [
+    {
+      "order_number": "MONZ0003"
+      "novatech_order_number": 6010361
+      "order_date" : "2018-10-24 10:40:00",
+      "order_status": "A"
+    },
+    {
+      "order_number": "MONZ0002"
+      "novatech_order_number": 6010360
+      "order_date" : "2018-10-23 11:43:00",
+      "order_status": "I"
+    },
+    {
+      "order_number": "MONZ0001"
+      "novatech_order_number": 6010359
+      "order_date" : "2018-10-21 09:05:00",
+      "order_status": "I"
+    }
+  ]
+}
+```
+
+This endpoint allows to pull down a summary list of all the orders you have placed with Novatech (up to the last 500).
+
+### HTTP Request
+
+`GET <%= config[:api_endpoint] %>/orders`
+
+### Response
+
+Parameter | Description
+----------|------------
+orders | An array of JSON objects summarising each order placed with Novatech on your account
+order_number | Your purchase order number that you passed in with the order request
+novatech_order_number | Our unique order number. You will need this to lookup information on the order later
+order_date | The date the order was placed on our system
+order_status | The current status of the order. A detailed list of order statuses is given in the place order section
+
 ## Lookup Order Information
 
 ```shell
@@ -677,7 +763,7 @@ func main() {
 }
 ```
 
-This endpoint allows you to lookup information on any order placed on your credit account.
+This endpoint allows you to lookup detailed information on any order placed on your credit account.
 
 ### HTTP Request
 
@@ -711,4 +797,98 @@ date_tracked | The date the item was scanned
 <aside class="notice">
 Please note that the dispatch_info, tracking_url, tracking_info, and serial_no fields may not be present.
 </aside>
+
+# Audit Log
+
+## Get Audit Log
+
+```shell
+curl --request GET \
+  --url <%= config[:api_endpoint] %>/audit
+```
+
+```python
+import requests
+
+url = "<%= config[:api_endpoint] %>/audit"
+
+response = requests.request("GET", url)
+
+print(response.text)
+```
+
+```go
+package main
+
+import (
+	"fmt"
+	"net/http"
+	"io/ioutil"
+)
+
+func main() {
+
+	url := "<%= config[:api_endpoint] %>/audit"
+
+	req, _ := http.NewRequest("GET", url, nil)
+
+	res, _ := http.DefaultClient.Do(req)
+
+	defer res.Body.Close()
+	body, _ := ioutil.ReadAll(res.Body)
+
+	fmt.Println(res)
+	fmt.Println(string(body))
+
+}
+```
+
+> This endpoint returns JSON structured like this:
+
+```json
+{
+  "audit_log": [
+    {
+      "timestamp": "2018-10-24 11:40:00",
+      "email": "<%= config[:test_email] %>",
+      "action": "Placed order: 6010362"
+    },
+    {
+      "timestamp": "2018-10-24 11:25:00",
+      "email": "<%= config[:test_email] %>",
+      "action": "Performed Stock Check"
+    },
+    {
+      "timestamp": "2018-10-24 11:21:00",
+      "email": "<%= config[:test_email] %>",
+      "action": "Login: Success"
+    },
+    {
+      "timestamp": "2018-10-24 11:20:00",
+      "email": "<%= config[:test_email] %>",
+      "action": "Login: Failure"
+    }
+  ]
+}
+```
+
+This endpoint allows you to request a list of all actions carried out through the API by your account.
+
+### HTTP Request
+
+`GET <%= config[:api_endpoint] %>/audit/<ROWS>`
+
+### URL Parameters
+
+Parameter | Required? | Description
+----------|-----------|------------
+ROWS | no | The number of rows you want returned. Defaults to 500 if not supplied
+
+### Response
+
+Parameter | Description
+----------|------------
+timestamp | The time when the action occured
+email | The username / email that carried out the action
+action | The action that was carried out
 
