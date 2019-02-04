@@ -892,3 +892,110 @@ timestamp | The time when the action occured
 email | The username / email that carried out the action
 action | The action that was carried out
 
+# Notifications
+
+> The POST request will contain JSON structured like this:
+
+```json
+{
+  "supplier_order_number": 6010365,
+  "type": "ORDER_DISPATCHED",
+  "order_number": "MONZ0002",
+  "order": {
+    "trade_code": "MON024",
+    "order_number": "MONZ0002",
+    "novatech_order_number": 6010365,
+    "order_date": "2019-01-18 12:57:00",
+    "order_status": "I",
+    "ex_vat_total": 11.27,
+    "vat": 2.25,
+    "inc_vat_total": 13.52,
+    "order_lines": [
+      {
+        "status": "I",
+        "description": "2M CAT 6",
+        "quantity": 1,
+        "price": 3.32,
+        "vat": 0.66,
+        "sku": "CAB-C6/2",
+        "ex_vat_total": 3.32,
+        "inc_vat_total": 3.98
+      },
+      {
+        "status": "I",
+        "description": "*         ** NEXT DAY **",
+        "quantity": 1,
+        "price": 7.95,
+        "vat": 1.59,
+        "sku": "DELI01",
+        "ex_vat_total": 7.95,
+        "inc_vat_total": 9.54
+      }
+    ],
+    "dispatch_info": [
+      {
+        "dispatch_number": 3101210,
+        "dispatch_date": "2019-01-18 00:00:00",
+        "box_number": 1,
+        "item_number": 1,
+        "courier_service": "ParcelForce",
+        "tracking_url": "https://www.parcelforce.com/track-trace?trackNumber=NX8888888"
+      },
+      {
+        "dispatch_number": 3101209,
+        "dispatch_date": "2019-01-18 00:00:00",
+        "box_number": 1,
+        "item_number": 1,
+        "courier_service": "ParcelForce",
+        "tracking_url": "https://www.parcelforce.com/track-trace?trackNumber=NX9999999"
+      }
+    ],
+    "tracking_info": [
+      {
+        "sku": "CAB-C6/2  ",
+        "track_no": 1234567,
+        "date_tracked": "2019-01-18 15:23:24"
+      },
+      {
+        "sku": "cab-c6/2  ",
+        "track_no": 1234567,
+        "date_tracked": "2019-01-18 15:34:51"
+      }
+    ]
+  },
+  "verification_signature": "e86f90f643284a36b486c4c5ea1c159b0ba9311b7a497c02e994bb982cb09142"
+}
+```
+
+The Novatech API has the ability to send notifications directly to a URL you control, but must be set up separately to standard API access.
+
+You can receive notifications for the following events:
+
+* Order Placed
+* Order Invoiced
+* Order Dispatched
+* Order Cancelled
+
+As the order moves through our systems, at each status change the API can send a POST request to a webhook you control.
+
+### POST Parameters
+
+Parameter | Description
+----------|------------
+supplier_order_number | Novatech's order number
+order_number | Your order reference
+type | The event type (`ORDER_PLACED`, `ORDER_INVOICED`, `ORDER_DISPATCHED`, `ORDER_CANCELLED`)
+order | A JSON object representing the order being referenced
+verification_signature | A hex-encoded signature string to verify the notification received.
+
+### Verification Signature
+
+The verification signature is calculated using the `supplier_order_number`, `order_number` and `type` fields. They are appended together using a fullstop as the delimiter. For example:
+
+`6010365.MONZ0002.ORDER_DISPATCHED`
+
+The string is then encoded using the HmacSHA256 algorithm using a long secret key pre-determined between Novatech and you. Finally the value is Hex encoded and included in the JSON.
+
+### Response
+
+Each request simply expects a HTTP 200 code in response. If any other HTTP status code is received the notification will be resent later, and will continue to be so until the 200 code is received.
