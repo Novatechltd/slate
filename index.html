@@ -271,6 +271,20 @@
               </ul>
           </li>
           <li>
+            <a href="#notifications" class="toc-h1 toc-link" data-title="Notifications">Notifications</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#post-parameters" class="toc-h2 toc-link" data-title="POST Parameters">POST Parameters</a>
+                  </li>
+                  <li>
+                    <a href="#verification-signature" class="toc-h2 toc-link" data-title="Verification Signature">Verification Signature</a>
+                  </li>
+                  <li>
+                    <a href="#response-7" class="toc-h2 toc-link" data-title="Response">Response</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
       </ul>
@@ -1325,6 +1339,127 @@ Please note that the dispatch_info, tracking_url, tracking_info, and serial_no f
 <td>The action that was carried out</td>
 </tr>
 </tbody></table>
+<h1 id='notifications'>Notifications</h1>
+<blockquote>
+<p>The POST request will contain JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"supplier_order_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">6010365</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ORDER_DISPATCHED"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"order_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MONZ0002"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"order"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"trade_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MON024"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"order_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MONZ0002"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"novatech_order_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">6010365</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"order_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-18 12:57:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"order_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"I"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ex_vat_total"</span><span class="p">:</span><span class="w"> </span><span class="mf">11.27</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"vat"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.25</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"inc_vat_total"</span><span class="p">:</span><span class="w"> </span><span class="mf">13.52</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"order_lines"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"I"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2M CAT 6"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.32</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"vat"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.66</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CAB-C6/2"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ex_vat_total"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.32</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"inc_vat_total"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.98</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"I"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"*         ** NEXT DAY **"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mf">7.95</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"vat"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.59</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DELI01"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"ex_vat_total"</span><span class="p">:</span><span class="w"> </span><span class="mf">7.95</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"inc_vat_total"</span><span class="p">:</span><span class="w"> </span><span class="mf">9.54</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"dispatch_info"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"dispatch_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">3101210</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"dispatch_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-18 00:00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"box_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"item_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"courier_service"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ParcelForce"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tracking_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.parcelforce.com/track-trace?trackNumber=NX8888888"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"dispatch_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">3101209</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"dispatch_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-18 00:00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"box_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"item_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"courier_service"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ParcelForce"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tracking_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.parcelforce.com/track-trace?trackNumber=NX9999999"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"tracking_info"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CAB-C6/2  "</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"track_no"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234567</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date_tracked"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-18 15:23:24"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cab-c6/2  "</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"track_no"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234567</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date_tracked"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-18 15:34:51"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"verification_signature"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e86f90f643284a36b486c4c5ea1c159b0ba9311b7a497c02e994bb982cb09142"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The Novatech API has the ability to send notifications directly to a URL you control, but must be set up separately to standard API access.</p>
+
+<p>You can receive notifications for the following events:</p>
+
+<ul>
+<li>Order Placed</li>
+<li>Order Invoiced</li>
+<li>Order Dispatched</li>
+<li>Order Cancelled</li>
+</ul>
+
+<p>As the order moves through our systems, at each status change the API can send a POST request to a webhook you control.</p>
+<h3 id='post-parameters'>POST Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>supplier_order_number</td>
+<td>Novatech&#39;s order number</td>
+</tr>
+<tr>
+<td>order_number</td>
+<td>Your order reference</td>
+</tr>
+<tr>
+<td>type</td>
+<td>The event type (<code>ORDER_PLACED</code>, <code>ORDER_INVOICED</code>, <code>ORDER_DISPATCHED</code>, <code>ORDER_CANCELLED</code>)</td>
+</tr>
+<tr>
+<td>order</td>
+<td>A JSON object representing the order being referenced</td>
+</tr>
+<tr>
+<td>verification_signature</td>
+<td>A hex-encoded signature string to verify the notification received.</td>
+</tr>
+</tbody></table>
+<h3 id='verification-signature'>Verification Signature</h3>
+<p>The verification signature is calculated using the <code>supplier_order_number</code>, <code>order_number</code> and <code>type</code> fields. They are appended together using a fullstop as the delimiter. For example:</p>
+
+<p><code>6010365.MONZ0002.ORDER_DISPATCHED</code></p>
+
+<p>The string is then encoded using the HmacSHA256 algorithm using a long secret key pre-determined between Novatech and you. Finally the value is Hex encoded and included in the JSON.</p>
+<h3 id='response-7'>Response</h3>
+<p>Each request simply expects a HTTP 200 code in response. If any other HTTP status code is received the notification will be resent later, and will continue to be so until the 200 code is received.</p>
 <h1 id='errors'>Errors</h1>
 <blockquote>
 <p>Any errors will be returned in the following JSON format:</p>
