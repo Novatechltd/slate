@@ -263,6 +263,17 @@
               </ul>
           </li>
           <li>
+            <a href="#collections" class="toc-h1 toc-link" data-title="Collections">Collections</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#initiate-collection-process" class="toc-h2 toc-link" data-title="Initiate Collection Process">Initiate Collection Process</a>
+                  </li>
+                  <li>
+                    <a href="#lookup-collection-status" class="toc-h2 toc-link" data-title="Lookup Collection Status">Lookup Collection Status</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#audit-log" class="toc-h1 toc-link" data-title="Audit Log">Audit Log</a>
               <ul class="toc-list-h2">
                   <li>
@@ -271,7 +282,7 @@
               </ul>
           </li>
           <li>
-            <a href="#notifications" class="toc-h1 toc-link" data-title="Notifications">Notifications</a>
+            <a href="#webhook-notifications" class="toc-h1 toc-link" data-title="Webhook Notifications">Webhook Notifications</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#post-parameters" class="toc-h2 toc-link" data-title="POST Parameters">POST Parameters</a>
@@ -280,7 +291,7 @@
                     <a href="#verification-signature" class="toc-h2 toc-link" data-title="Verification Signature">Verification Signature</a>
                   </li>
                   <li>
-                    <a href="#response-7" class="toc-h2 toc-link" data-title="Response">Response</a>
+                    <a href="#response-9" class="toc-h2 toc-link" data-title="Response">Response</a>
                   </li>
               </ul>
           </li>
@@ -663,14 +674,14 @@ Remember to include your authentication header!
 {
   "order_number": "MONZ0001",
   "deliver_to": {
-    "name": "Lindy Bishop",
+    "name": "Joe Smith",
     "address_lines": [
-      "38 Finsbury Square",
-      "London"
+      "1 Hamilton Road",
+      "Portsmouth"
     ],
-    "postal_code": "EC2A 1PX",
-    "email_address": "lindy@monzo.com",
-    "phone_number": "+448008021456"
+    "postal_code": "PO6 4PU",
+    "email_address": "customer@company.com",
+    "phone_number": "07171071071"
   },
   "order_lines": [
     {
@@ -687,7 +698,7 @@ Remember to include your authentication header!
 
 <span class="n">url</span> <span class="o">=</span> <span class="s">"https://test-api.novatech.co.uk/order"</span>
 
-<span class="n">payload</span> <span class="o">=</span> <span class="s">"</span><span class="se">\n</span><span class="s">{</span><span class="se">\n</span><span class="s">  </span><span class="se">\"</span><span class="s">order_number</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">MONZ0001</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">  </span><span class="se">\"</span><span class="s">deliver_to</span><span class="se">\"</span><span class="s">: {</span><span class="se">\n</span><span class="s">     </span><span class="se">\"</span><span class="s">name</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">Lindy Bishop</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">     </span><span class="se">\"</span><span class="s">address_lines</span><span class="se">\"</span><span class="s">: [</span><span class="se">\n</span><span class="s">       </span><span class="se">\"</span><span class="s">38 Finsbury Square</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">       </span><span class="se">\"</span><span class="s">London</span><span class="se">\"\n</span><span class="s">     ],</span><span class="se">\n</span><span class="s">     </span><span class="se">\"</span><span class="s">postal_code</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">EC2A 1PX</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">     </span><span class="se">\"</span><span class="s">email_address</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">lindy@monzo.com</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">     </span><span class="se">\"</span><span class="s">phone_number</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">+448008021456</span><span class="se">\"\n</span><span class="s">  },</span><span class="se">\n</span><span class="s">  </span><span class="se">\"</span><span class="s">order_lines</span><span class="se">\"</span><span class="s">: [</span><span class="se">\n</span><span class="s">    {</span><span class="se">\n</span><span class="s">      </span><span class="se">\"</span><span class="s">sku</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">TEST-SKU01</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">      </span><span class="se">\"</span><span class="s">quantity</span><span class="se">\"</span><span class="s">: 1</span><span class="se">\n</span><span class="s">    },</span><span class="se">\n</span><span class="s">    {</span><span class="se">\n</span><span class="s">      </span><span class="se">\"</span><span class="s">sku</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">TEST-SKU02</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">      </span><span class="se">\"</span><span class="s">quantity</span><span class="se">\"</span><span class="s">: 2</span><span class="se">\n</span><span class="s">    }</span><span class="se">\n</span><span class="s">  ]</span><span class="se">\n</span><span class="s">} "</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="s">"</span><span class="se">\n</span><span class="s">{</span><span class="se">\n</span><span class="s">  </span><span class="se">\"</span><span class="s">order_number</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">MONZ0001</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">  </span><span class="se">\"</span><span class="s">deliver_to</span><span class="se">\"</span><span class="s">: {</span><span class="se">\n</span><span class="s">     </span><span class="se">\"</span><span class="s">name</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">Joe Smith</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">     </span><span class="se">\"</span><span class="s">address_lines</span><span class="se">\"</span><span class="s">: [</span><span class="se">\n</span><span class="s">       </span><span class="se">\"</span><span class="s">1 Hamilton Road</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">       </span><span class="se">\"</span><span class="s">Portsmouth</span><span class="se">\"\n</span><span class="s">     ],</span><span class="se">\n</span><span class="s">     </span><span class="se">\"</span><span class="s">postal_code</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">PO6 4PU</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">     </span><span class="se">\"</span><span class="s">email_address</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">customer@company.com</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">     </span><span class="se">\"</span><span class="s">phone_number</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">07171071071</span><span class="se">\"\n</span><span class="s">  },</span><span class="se">\n</span><span class="s">  </span><span class="se">\"</span><span class="s">order_lines</span><span class="se">\"</span><span class="s">: [</span><span class="se">\n</span><span class="s">    {</span><span class="se">\n</span><span class="s">      </span><span class="se">\"</span><span class="s">sku</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">TEST-SKU01</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">      </span><span class="se">\"</span><span class="s">quantity</span><span class="se">\"</span><span class="s">: 1</span><span class="se">\n</span><span class="s">    },</span><span class="se">\n</span><span class="s">    {</span><span class="se">\n</span><span class="s">      </span><span class="se">\"</span><span class="s">sku</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">TEST-SKU02</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">      </span><span class="se">\"</span><span class="s">quantity</span><span class="se">\"</span><span class="s">: 2</span><span class="se">\n</span><span class="s">    }</span><span class="se">\n</span><span class="s">  ]</span><span class="se">\n</span><span class="s">} "</span>
 <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">}</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
@@ -706,7 +717,7 @@ Remember to include your authentication header!
 
     </span><span class="n">url</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="s">"https://test-api.novatech.co.uk/order"</span><span class="x">
 
-    </span><span class="n">payload</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">strings</span><span class="o">.</span><span class="n">NewReader</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">{</span><span class="se">\n</span><span class="s">  </span><span class="se">\"</span><span class="s">order_number</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">MONZ0001</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">  </span><span class="se">\"</span><span class="s">deliver_to</span><span class="se">\"</span><span class="s">: {</span><span class="se">\n</span><span class="s">     </span><span class="se">\"</span><span class="s">name</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">Lindy Bishop</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">     </span><span class="se">\"</span><span class="s">address_lines</span><span class="se">\"</span><span class="s">: [</span><span class="se">\n</span><span class="s">       </span><span class="se">\"</span><span class="s">38 Finsbury Square</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">       </span><span class="se">\"</span><span class="s">London</span><span class="se">\"\n</span><span class="s">     ],</span><span class="se">\n</span><span class="s">     </span><span class="se">\"</span><span class="s">postal_code</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">EC2A 1PX</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">     </span><span class="se">\"</span><span class="s">email_address</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">lindy@monzo.com</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">     </span><span class="se">\"</span><span class="s">phone_number</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">+448008021456</span><span class="se">\"\n</span><span class="s">  },</span><span class="se">\n</span><span class="s">  </span><span class="se">\"</span><span class="s">order_lines</span><span class="se">\"</span><span class="s">: [</span><span class="se">\n</span><span class="s">    {</span><span class="se">\n</span><span class="s">      </span><span class="se">\"</span><span class="s">sku</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">TEST-SKU01</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">      </span><span class="se">\"</span><span class="s">quantity</span><span class="se">\"</span><span class="s">: 1</span><span class="se">\n</span><span class="s">    },</span><span class="se">\n</span><span class="s">    {</span><span class="se">\n</span><span class="s">      </span><span class="se">\"</span><span class="s">sku</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">TEST-SKU02</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">      </span><span class="se">\"</span><span class="s">quantity</span><span class="se">\"</span><span class="s">: 2</span><span class="se">\n</span><span class="s">    }</span><span class="se">\n</span><span class="s">  ]</span><span class="se">\n</span><span class="s">} "</span><span class="p">)</span><span class="x">
+    </span><span class="n">payload</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">strings</span><span class="o">.</span><span class="n">NewReader</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">{</span><span class="se">\n</span><span class="s">  </span><span class="se">\"</span><span class="s">order_number</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">MONZ0001</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">  </span><span class="se">\"</span><span class="s">deliver_to</span><span class="se">\"</span><span class="s">: {</span><span class="se">\n</span><span class="s">     </span><span class="se">\"</span><span class="s">name</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">Joe Smith</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">     </span><span class="se">\"</span><span class="s">address_lines</span><span class="se">\"</span><span class="s">: [</span><span class="se">\n</span><span class="s">       </span><span class="se">\"</span><span class="s">1 Hamilton Road</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">       </span><span class="se">\"</span><span class="s">Portsmouth</span><span class="se">\"\n</span><span class="s">     ],</span><span class="se">\n</span><span class="s">     </span><span class="se">\"</span><span class="s">postal_code</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">PO6 4PU</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">     </span><span class="se">\"</span><span class="s">email_address</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">customer@company.com</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">     </span><span class="se">\"</span><span class="s">phone_number</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">07171071071</span><span class="se">\"\n</span><span class="s">  },</span><span class="se">\n</span><span class="s">  </span><span class="se">\"</span><span class="s">order_lines</span><span class="se">\"</span><span class="s">: [</span><span class="se">\n</span><span class="s">    {</span><span class="se">\n</span><span class="s">      </span><span class="se">\"</span><span class="s">sku</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">TEST-SKU01</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">      </span><span class="se">\"</span><span class="s">quantity</span><span class="se">\"</span><span class="s">: 1</span><span class="se">\n</span><span class="s">    },</span><span class="se">\n</span><span class="s">    {</span><span class="se">\n</span><span class="s">      </span><span class="se">\"</span><span class="s">sku</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">TEST-SKU02</span><span class="se">\"</span><span class="s">,</span><span class="se">\n</span><span class="s">      </span><span class="se">\"</span><span class="s">quantity</span><span class="se">\"</span><span class="s">: 2</span><span class="se">\n</span><span class="s">    }</span><span class="se">\n</span><span class="s">  ]</span><span class="se">\n</span><span class="s">} "</span><span class="p">)</span><span class="x">
 
     </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">_</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span><span class="x"> </span><span class="n">url</span><span class="p">,</span><span class="x"> </span><span class="n">payload</span><span class="p">)</span><span class="x">
 
@@ -726,7 +737,7 @@ Remember to include your authentication header!
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"trade_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MON024"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"trade_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"API001"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"order_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MONZ0001"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"novatech_order_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">6010361</span><span class="p">,</span><span class="w">
   </span><span class="s2">"order_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-09 09:04:00"</span><span class="p">,</span><span class="w">
@@ -797,7 +808,7 @@ Remember to include your authentication header!
 <tr>
 <td>address_lines</td>
 <td>yes</td>
-<td>An array of address lines. There must be at least one line in the array. Max length 30, max number of lines 4</td>
+<td>An array of address lines. There must be at least two lines in the array. Max length 30, max number of lines 4</td>
 </tr>
 <tr>
 <td>postal_code</td>
@@ -1093,7 +1104,7 @@ Remember to include your authentication header!
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"trade_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MON024"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"trade_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"API001"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"order_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MONZ0001"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"novatech_order_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">6010361</span><span class="p">,</span><span class="w">
   </span><span class="s2">"order_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-09 09:04:00"</span><span class="p">,</span><span class="w">
@@ -1241,6 +1252,512 @@ Remember to include your authentication header!
 <aside class="notice">
 Please note that the dispatch_info, tracking_url, tracking_info, and serial_no fields may not be present.
 </aside>
+<h1 id='collections'>Collections</h1><h2 id='initiate-collection-process'>Initiate Collection Process</h2><pre class="highlight shell tab-shell"><code>curl --location --request POST https://test-api.novatech.co.uk/collection/book <span class="se">\</span>
+--header <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+--data-raw <span class="s1">'{
+    "collection_reference": "APITEST",
+    "collect_from": {
+        "name": "Joe Smith",
+        "address_lines": [
+            "1 Hamilton Road",
+            "Portsmouth"
+        ],
+        "postal_code": "PO6 4PU"
+    },
+    "notification_email_address": "customer@company.com",
+    "notification_phone_number": "07171071071",
+    "packaging_lines": [
+        {
+            "packaging_type": "laptop",
+            "asset_tag": "1234567890"
+        },
+        {
+            "packaging_type": "laptop",
+            "asset_tag": "0987654321"
+        }
+    ]
+}'</span>
+</code></pre><pre class="highlight go tab-go"><code><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
+
+</span><span class="k">import</span><span class="x"> </span><span class="p">(</span><span class="x">
+  </span><span class="s">"fmt"</span><span class="x">
+  </span><span class="s">"strings"</span><span class="x">
+  </span><span class="s">"net/http"</span><span class="x">
+  </span><span class="s">"io/ioutil"</span><span class="x">
+</span><span class="p">)</span><span class="x">
+
+</span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
+
+  </span><span class="n">url</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="s">"https://test-api.novatech.co.uk/collection/book"</span><span class="x">
+  </span><span class="n">method</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="s">"POST"</span><span class="x">
+
+  </span><span class="n">payload</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">strings</span><span class="o">.</span><span class="n">NewReader</span><span class="p">(</span><span class="s">`{`</span><span class="o">+</span><span class="s">"
+"</span><span class="o">+</span><span class="s">`
+    "collection_reference": "APITEST",`</span><span class="o">+</span><span class="s">"
+"</span><span class="o">+</span><span class="s">`
+    "collect_from": {`</span><span class="o">+</span><span class="s">"
+"</span><span class="o">+</span><span class="s">`
+        "name": "Joe Smith",`</span><span class="o">+</span><span class="s">"
+"</span><span class="o">+</span><span class="s">`
+        "address_lines": [`</span><span class="o">+</span><span class="s">"
+"</span><span class="o">+</span><span class="s">`
+            "1 Hamilton Road",`</span><span class="o">+</span><span class="s">"
+"</span><span class="o">+</span><span class="s">`
+            "Portsmouth"`</span><span class="o">+</span><span class="s">"
+"</span><span class="o">+</span><span class="s">`
+        ],`</span><span class="o">+</span><span class="s">"
+"</span><span class="o">+</span><span class="s">`
+        "postal_code": "PO6 4PU"`</span><span class="o">+</span><span class="s">"
+"</span><span class="o">+</span><span class="s">`
+    },`</span><span class="o">+</span><span class="s">"
+"</span><span class="o">+</span><span class="s">`
+    "notification_email_address": "customer@company.com",`</span><span class="o">+</span><span class="s">"
+"</span><span class="o">+</span><span class="s">`
+    "notification_phone_number": "07171071071",`</span><span class="o">+</span><span class="s">"
+"</span><span class="o">+</span><span class="s">`
+    "packaging_lines": [`</span><span class="o">+</span><span class="s">"
+"</span><span class="o">+</span><span class="s">`
+        {`</span><span class="o">+</span><span class="s">"
+"</span><span class="o">+</span><span class="s">`
+            "packaging_type": "laptop",`</span><span class="o">+</span><span class="s">"
+"</span><span class="o">+</span><span class="s">`
+            "asset_tag": "1234567890"`</span><span class="o">+</span><span class="s">"
+"</span><span class="o">+</span><span class="s">`
+        },`</span><span class="o">+</span><span class="s">"
+"</span><span class="o">+</span><span class="s">`
+        {`</span><span class="o">+</span><span class="s">"
+"</span><span class="o">+</span><span class="s">`
+            "packaging_type": "laptop",`</span><span class="o">+</span><span class="s">"
+"</span><span class="o">+</span><span class="s">`
+            "asset_tag": "0987654321"`</span><span class="o">+</span><span class="s">"
+"</span><span class="o">+</span><span class="s">`
+        }`</span><span class="o">+</span><span class="s">"
+"</span><span class="o">+</span><span class="s">`
+    ]`</span><span class="o">+</span><span class="s">"
+"</span><span class="o">+</span><span class="s">`
+}`</span><span class="p">)</span><span class="x">
+
+  </span><span class="n">client</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">http</span><span class="o">.</span><span class="n">Client</span><span class="x"> </span><span class="p">{</span><span class="x">
+  </span><span class="p">}</span><span class="x">
+  </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="n">method</span><span class="p">,</span><span class="x"> </span><span class="n">url</span><span class="p">,</span><span class="x"> </span><span class="n">payload</span><span class="p">)</span><span class="x">
+
+  </span><span class="k">if</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">!=</span><span class="x"> </span><span class="no">nil</span><span class="x"> </span><span class="p">{</span><span class="x">
+    </span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">err</span><span class="p">)</span><span class="x">
+    </span><span class="k">return</span><span class="x">
+  </span><span class="p">}</span><span class="x">
+  </span><span class="n">req</span><span class="o">.</span><span class="n">Header</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="s">"Content-Type"</span><span class="p">,</span><span class="x"> </span><span class="s">"application/json"</span><span class="p">)</span><span class="x">
+
+  </span><span class="n">res</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">client</span><span class="o">.</span><span class="n">Do</span><span class="p">(</span><span class="n">req</span><span class="p">)</span><span class="x">
+  </span><span class="k">if</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">!=</span><span class="x"> </span><span class="no">nil</span><span class="x"> </span><span class="p">{</span><span class="x">
+    </span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">err</span><span class="p">)</span><span class="x">
+    </span><span class="k">return</span><span class="x">
+  </span><span class="p">}</span><span class="x">
+  </span><span class="k">defer</span><span class="x"> </span><span class="n">res</span><span class="o">.</span><span class="n">Body</span><span class="o">.</span><span class="n">Close</span><span class="p">()</span><span class="x">
+
+  </span><span class="n">body</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">ioutil</span><span class="o">.</span><span class="n">ReadAll</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">Body</span><span class="p">)</span><span class="x">
+  </span><span class="k">if</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">!=</span><span class="x"> </span><span class="no">nil</span><span class="x"> </span><span class="p">{</span><span class="x">
+    </span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">err</span><span class="p">)</span><span class="x">
+    </span><span class="k">return</span><span class="x">
+  </span><span class="p">}</span><span class="x">
+  </span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="kt">string</span><span class="p">(</span><span class="n">body</span><span class="p">))</span><span class="x">
+</span><span class="p">}</span><span class="x">
+</span></code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://test-api.novatech.co.uk/collection/book"</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span>
+  <span class="s">"collection_reference"</span><span class="p">:</span> <span class="s">"APITEST"</span><span class="p">,</span>
+  <span class="s">"collect_from"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s">"name"</span><span class="p">:</span> <span class="s">"Joe Smith"</span><span class="p">,</span>
+    <span class="s">"address_lines"</span><span class="p">:</span> <span class="p">[</span>
+      <span class="s">"1 Hamilton Road"</span><span class="p">,</span>
+      <span class="s">"Portsmouth"</span>
+    <span class="p">],</span>
+    <span class="s">"postal_code"</span><span class="p">:</span> <span class="s">"PO6 4PU"</span>
+  <span class="p">},</span>
+  <span class="s">"notification_email_address"</span><span class="p">:</span> <span class="s">"customer@company.com"</span><span class="p">,</span>
+  <span class="s">"notification_phone_number"</span><span class="p">:</span> <span class="s">"07171071071"</span><span class="p">,</span>
+  <span class="s">"packaging_lines"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s">"packaging_type"</span><span class="p">:</span> <span class="s">"laptop"</span><span class="p">,</span>
+      <span class="s">"asset_tag"</span><span class="p">:</span> <span class="s">"1234567890"</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s">"packaging_type"</span><span class="p">:</span> <span class="s">"laptop"</span><span class="p">,</span>
+      <span class="s">"asset_tag"</span><span class="p">:</span> <span class="s">"0987654321"</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">})</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>This endpoint returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"supplier_order_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">6195185</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"collection_reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"APITEST"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"collect_from"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joe Smith"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address_lines"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"1 Hamilton Road"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"Portsmouth"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PO6 4PU"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"notification_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"customer@company.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"notification_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07171071071"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number_of_boxes"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-07-05 13:32:59"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"booked"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"collection_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://collections.novatechportal.co.uk/collection/bac5b960-168d-4e37-a548-6ae2af9e5be5"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"assets"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"asset_tag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LAPTOP"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"received_back"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"asset_tag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0987654321"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LAPTOP"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"received_back"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>When your assets have come to the end of their life, you can automatically arrange a collection of the items through the API. 
+Simply make a request detailing the items to be collected, and Novatech will send out appropriate packaging for the end user to safely protect the goods. 
+The user can then request a collection date most suitable for them with the unique link provided to them via email and SMS.</p>
+<h3 id='http-request-8'>HTTP Request</h3>
+<p><code>POST https://test-api.novatech.co.uk/collection/book</code></p>
+<h3 id='body-parameters-4'>Body Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>collection_reference</td>
+<td>yes</td>
+<td>Your own collection or ticket reference for use in your own records. Max length 14</td>
+</tr>
+<tr>
+<td>collect_from</td>
+<td>yes</td>
+<td>JSON object containing the address you wish the goods to be collected from</td>
+</tr>
+<tr>
+<td>name</td>
+<td>yes</td>
+<td>The name of the person the items are to be collected from. Min length 3, max length 30</td>
+</tr>
+<tr>
+<td>address_lines</td>
+<td>yes</td>
+<td>An array of address lines. There must be at least 2 lines in the array. Max length 30, max number of lines 4</td>
+</tr>
+<tr>
+<td>postal_code</td>
+<td>yes</td>
+<td>The post code of the address for collection. Max length 8</td>
+</tr>
+<tr>
+<td>notification_email_address</td>
+<td>yes</td>
+<td>The email of the person you wish notifications and alerts to be sent to. Max length 254</td>
+</tr>
+<tr>
+<td>notification_phone_number</td>
+<td>yes</td>
+<td>The mobile phone number of the person you wish notifications and alerts about this collection to be sent to. Max length 30</td>
+</tr>
+<tr>
+<td>packaging_lines</td>
+<td>yes</td>
+<td>An array of JSON objects identifying the items you wish to be collected</td>
+</tr>
+<tr>
+<td>packaging_type</td>
+<td>yes</td>
+<td>The type of packaging required to collect the item in question i.e. laptop. These types will be arranged with your account manager before go live</td>
+</tr>
+<tr>
+<td>asset_tag</td>
+<td>yes</td>
+<td>Your products asset tag or serial number. Must be a unique identifier in order to track when we receive the item back</td>
+</tr>
+</tbody></table>
+<h3 id='response-6'>Response</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>supplier_order_number</td>
+<td>Our unique order number for this collection</td>
+</tr>
+<tr>
+<td>collection_reference</td>
+<td>Your collection or ticket reference from your own records</td>
+</tr>
+<tr>
+<td>collect_from</td>
+<td>A JSON object containing the address we will be collecting the items from</td>
+</tr>
+<tr>
+<td>name</td>
+<td>The name of the person we are collecting the items from</td>
+</tr>
+<tr>
+<td>address_lines</td>
+<td>An array of address lines</td>
+</tr>
+<tr>
+<td>postal_code</td>
+<td>The post code of the address we are collecting the items from</td>
+</tr>
+<tr>
+<td>notification_email_address</td>
+<td>The email address all notifications and alerts relating to this collection will be sent to</td>
+</tr>
+<tr>
+<td>notification_phone_number</td>
+<td>The mobile number all notifications and alerts relating to this collection will be sent to</td>
+</tr>
+<tr>
+<td>number_of_boxes</td>
+<td>The number of boxes being sent to the collection address</td>
+</tr>
+<tr>
+<td>created_date</td>
+<td>The date the collection request was AnEvenLongerAndMoreSecurePasswordThanBefore</td>
+</tr>
+<tr>
+<td>booked</td>
+<td>Whether the end user the collection is being made from has booked a date for the items to be collected</td>
+</tr>
+<tr>
+<td>collection_url</td>
+<td>The uniqiue URL for the end user to use to book their collection date. The end user is also emailed and sent an SMS containing this link</td>
+</tr>
+<tr>
+<td>assets</td>
+<td>An array of JSON objects representing the assets you have requested to be collected</td>
+</tr>
+<tr>
+<td>asset_tag</td>
+<td>The items asset tag or serial number</td>
+</tr>
+<tr>
+<td>type</td>
+<td>The packaging type requested for this item</td>
+</tr>
+<tr>
+<td>received_back</td>
+<td>Whether we have received the item back or not</td>
+</tr>
+</tbody></table>
+
+<aside class="warning">
+Please note that in order to facilitate the collections process and to ensure we have suitable packaging and are ready to process any returned items, you must have an agreement in place with your account manager.
+</aside>
+<h2 id='lookup-collection-status'>Lookup Collection Status</h2>
+<blockquote>
+<p>Searching by collection reference:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --location --request GET <span class="s1">'https://test-api.novatech.co.uk/collection/search?collection_ref=APITEST'</span>
+</code></pre><pre class="highlight go tab-go"><code><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
+
+</span><span class="k">import</span><span class="x"> </span><span class="p">(</span><span class="x">
+  </span><span class="s">"fmt"</span><span class="x">
+  </span><span class="s">"net/http"</span><span class="x">
+  </span><span class="s">"io/ioutil"</span><span class="x">
+</span><span class="p">)</span><span class="x">
+
+</span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
+
+  </span><span class="n">url</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="s">"https://test-api.novatech.co.uk/collection/search?collection_ref=APITEST"</span><span class="x">
+  </span><span class="n">method</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="s">"GET"</span><span class="x">
+
+  </span><span class="n">client</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">http</span><span class="o">.</span><span class="n">Client</span><span class="x"> </span><span class="p">{</span><span class="x">
+  </span><span class="p">}</span><span class="x">
+  </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="n">method</span><span class="p">,</span><span class="x"> </span><span class="n">url</span><span class="p">,</span><span class="x"> </span><span class="no">nil</span><span class="p">)</span><span class="x">
+
+  </span><span class="k">if</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">!=</span><span class="x"> </span><span class="no">nil</span><span class="x"> </span><span class="p">{</span><span class="x">
+    </span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">err</span><span class="p">)</span><span class="x">
+    </span><span class="k">return</span><span class="x">
+  </span><span class="p">}</span><span class="x">
+
+  </span><span class="n">res</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">client</span><span class="o">.</span><span class="n">Do</span><span class="p">(</span><span class="n">req</span><span class="p">)</span><span class="x">
+  </span><span class="k">if</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">!=</span><span class="x"> </span><span class="no">nil</span><span class="x"> </span><span class="p">{</span><span class="x">
+    </span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">err</span><span class="p">)</span><span class="x">
+    </span><span class="k">return</span><span class="x">
+  </span><span class="p">}</span><span class="x">
+  </span><span class="k">defer</span><span class="x"> </span><span class="n">res</span><span class="o">.</span><span class="n">Body</span><span class="o">.</span><span class="n">Close</span><span class="p">()</span><span class="x">
+
+  </span><span class="n">body</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">ioutil</span><span class="o">.</span><span class="n">ReadAll</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">Body</span><span class="p">)</span><span class="x">
+  </span><span class="k">if</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">!=</span><span class="x"> </span><span class="no">nil</span><span class="x"> </span><span class="p">{</span><span class="x">
+    </span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">err</span><span class="p">)</span><span class="x">
+    </span><span class="k">return</span><span class="x">
+  </span><span class="p">}</span><span class="x">
+  </span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="kt">string</span><span class="p">(</span><span class="n">body</span><span class="p">))</span><span class="x">
+</span><span class="p">}</span><span class="x">
+</span></code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://test-api.novatech.co.uk/collection/search?collection_ref=APITEST"</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>Searching by asset tag:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl --location --request GET <span class="s1">'https://test-api.novatech.co.uk/collection/search?asset_tag=1234567890'</span>
+</code></pre><pre class="highlight go tab-go"><code><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
+
+</span><span class="k">import</span><span class="x"> </span><span class="p">(</span><span class="x">
+  </span><span class="s">"fmt"</span><span class="x">
+  </span><span class="s">"net/http"</span><span class="x">
+  </span><span class="s">"io/ioutil"</span><span class="x">
+</span><span class="p">)</span><span class="x">
+
+</span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
+
+  </span><span class="n">url</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="s">"https://test-api.novatech.co.uk/collection/search?asset_tag=1234567890"</span><span class="x">
+  </span><span class="n">method</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="s">"GET"</span><span class="x">
+
+  </span><span class="n">client</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="o">&amp;</span><span class="n">http</span><span class="o">.</span><span class="n">Client</span><span class="x"> </span><span class="p">{</span><span class="x">
+  </span><span class="p">}</span><span class="x">
+  </span><span class="n">req</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">http</span><span class="o">.</span><span class="n">NewRequest</span><span class="p">(</span><span class="n">method</span><span class="p">,</span><span class="x"> </span><span class="n">url</span><span class="p">,</span><span class="x"> </span><span class="no">nil</span><span class="p">)</span><span class="x">
+
+  </span><span class="k">if</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">!=</span><span class="x"> </span><span class="no">nil</span><span class="x"> </span><span class="p">{</span><span class="x">
+    </span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">err</span><span class="p">)</span><span class="x">
+    </span><span class="k">return</span><span class="x">
+  </span><span class="p">}</span><span class="x">
+
+  </span><span class="n">res</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">client</span><span class="o">.</span><span class="n">Do</span><span class="p">(</span><span class="n">req</span><span class="p">)</span><span class="x">
+  </span><span class="k">if</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">!=</span><span class="x"> </span><span class="no">nil</span><span class="x"> </span><span class="p">{</span><span class="x">
+    </span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">err</span><span class="p">)</span><span class="x">
+    </span><span class="k">return</span><span class="x">
+  </span><span class="p">}</span><span class="x">
+  </span><span class="k">defer</span><span class="x"> </span><span class="n">res</span><span class="o">.</span><span class="n">Body</span><span class="o">.</span><span class="n">Close</span><span class="p">()</span><span class="x">
+
+  </span><span class="n">body</span><span class="p">,</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">:=</span><span class="x"> </span><span class="n">ioutil</span><span class="o">.</span><span class="n">ReadAll</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">Body</span><span class="p">)</span><span class="x">
+  </span><span class="k">if</span><span class="x"> </span><span class="n">err</span><span class="x"> </span><span class="o">!=</span><span class="x"> </span><span class="no">nil</span><span class="x"> </span><span class="p">{</span><span class="x">
+    </span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="n">err</span><span class="p">)</span><span class="x">
+    </span><span class="k">return</span><span class="x">
+  </span><span class="p">}</span><span class="x">
+  </span><span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="kt">string</span><span class="p">(</span><span class="n">body</span><span class="p">))</span><span class="x">
+</span><span class="p">}</span><span class="x">
+</span></code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://test-api.novatech.co.uk/collection/search?asset_tag=1234567890"</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre>
+<blockquote>
+<p>Either of the above requests will return JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"supplier_order_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">6195185</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"collection_reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"APITEST"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"collect_from"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joe Smith"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"address_lines"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"1 Hamilton Road"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Portsmouth"</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="s2">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PO6 4PU"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"notification_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"customer@company.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"notification_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07171071071"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"number_of_boxes"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-07-05 13:32:59"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"booked"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"collection_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://collections.novatechportal.co.uk/collection/bac5b960-168d-4e37-a548-6ae2af9e5be5"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"assets"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"asset_tag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LAPTOP"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"received_back"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"asset_tag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0987654321"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LAPTOP"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"received_back"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"supplier_order_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">6195184</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"collection_reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"APITEST"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"collect_from"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joe Smith"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"address_lines"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"1 Hamilton Road"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"Portsmouth"</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="s2">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PO6 4PU"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"notification_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"customer@company.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"notification_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07171071071"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"number_of_boxes"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-06-27 11:40:51"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"booked"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"collection_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://collections.novatechportal.co.uk/collection/c46e2ce6-37e2-453a-a99a-d7f114567f1f"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"requested_collection_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-11-13 13:59:41"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"assets"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"asset_tag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LAPTOP"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"received_back"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"asset_tag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0987654321"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LAPTOP"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"received_back"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint allows you to lookup detailed information on any collection you have requested through the API.</p>
+<h3 id='http-request-9'>HTTP Request</h3>
+<p><code>GET https://test-api.novatech.co.uk/collection/search?&lt;SEARCH_TYPE&gt;=&lt;SEARCH_QUERY&gt;</code></p>
+<h3 id='url-parameters-3'>URL Parameters</h3>
+<p>You can search using two different search types; either using your collection reference or the asset tag, or a combination of the two</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>collection_ref</td>
+<td>The collection reference or ticket number you passed along when requesting the collection</td>
+</tr>
+<tr>
+<td>asset_tag</td>
+<td>The asset tag or serial number of one of the items you requested be collected</td>
+</tr>
+</tbody></table>
+<h3 id='response-7'>Response</h3>
+<p>The response will be a JSON array of collection objects as detailed in the response to initiating a collection.</p>
 <h1 id='audit-log'>Audit Log</h1><h2 id='get-audit-log'>Get Audit Log</h2><pre class="highlight shell tab-shell"><code>curl --request GET <span class="se">\</span>
   --url https://test-api.novatech.co.uk/audit
 </code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
@@ -1303,9 +1820,9 @@ Please note that the dispatch_info, tracking_url, tracking_info, and serial_no f
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint allows you to request a list of all actions carried out through the API by your account.</p>
-<h3 id='http-request-8'>HTTP Request</h3>
+<h3 id='http-request-10'>HTTP Request</h3>
 <p><code>GET https://test-api.novatech.co.uk/audit/&lt;ROWS&gt;</code></p>
-<h3 id='url-parameters-3'>URL Parameters</h3>
+<h3 id='url-parameters-4'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1319,7 +1836,7 @@ Please note that the dispatch_info, tracking_url, tracking_info, and serial_no f
 <td>The number of rows you want returned. Defaults to 500 if not supplied</td>
 </tr>
 </tbody></table>
-<h3 id='response-6'>Response</h3>
+<h3 id='response-8'>Response</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1339,16 +1856,16 @@ Please note that the dispatch_info, tracking_url, tracking_info, and serial_no f
 <td>The action that was carried out</td>
 </tr>
 </tbody></table>
-<h1 id='notifications'>Notifications</h1>
+<h1 id='webhook-notifications'>Webhook Notifications</h1>
 <blockquote>
-<p>The POST request will contain JSON structured like this:</p>
+<p>For notifications related to orders the POST request will contain JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"supplier_order_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">6010365</span><span class="p">,</span><span class="w">
   </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ORDER_DISPATCHED"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"order_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MONZ0002"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"order"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"trade_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MON024"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"trade_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"API001"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"order_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MONZ0002"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"novatech_order_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">6010365</span><span class="p">,</span><span class="w">
     </span><span class="s2">"order_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-18 12:57:00"</span><span class="p">,</span><span class="w">
@@ -1398,18 +1915,58 @@ Please note that the dispatch_info, tracking_url, tracking_info, and serial_no f
     </span><span class="p">],</span><span class="w">
     </span><span class="s2">"tracking_info"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CAB-C6/2  "</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CAB-C6/2"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"track_no"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234567</span><span class="p">,</span><span class="w">
         </span><span class="s2">"date_tracked"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-18 15:23:24"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cab-c6/2  "</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cab-c6/2"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"track_no"</span><span class="p">:</span><span class="w"> </span><span class="mi">1234567</span><span class="p">,</span><span class="w">
         </span><span class="s2">"date_tracked"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-18 15:34:51"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"verification_signature"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e86f90f643284a36b486c4c5ea1c159b0ba9311b7a497c02e994bb982cb09142"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>For Collections related notifications the POST request will contain JSON like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"supplier_order_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">6195185</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"COLLECTION_REQUESTED"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"order_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"APITEST"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"supplier_order_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">6195185</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"collection_reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"APITEST"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"collect_from"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joe Smith"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"address_lines"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"1 Hamilton Road"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"Portsmouth"</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"postal_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PO6 4PU"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"notification_email_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"customer@company.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"notification_phone_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"07171071071"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"number_of_boxes"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-07-05 13:32:59"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"booked"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"collection_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://collections.novatechportal.co.uk/collection/bac5b960-168d-4e37-a548-6ae2af9e5be5"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"assets"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"asset_tag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234567890"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LAPTOP"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"received_back"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"asset_tag"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0987654321"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LAPTOP"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"received_back"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"verification_signature"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1c5306f2fcbc112e38a24d603e80f0deb2986b20e6a3d2e6a1cbdfd1040e687e"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>The Novatech API has the ability to send notifications directly to a URL you control, but must be set up separately to standard API access.</p>
@@ -1421,6 +1978,8 @@ Please note that the dispatch_info, tracking_url, tracking_info, and serial_no f
 <li>Order Invoiced</li>
 <li>Order Dispatched</li>
 <li>Order Cancelled</li>
+<li>Collection Requested</li>
+<li>Collection Booked by End User</li>
 </ul>
 
 <p>As the order moves through our systems, at each status change the API can send a POST request to a webhook you control.</p>
@@ -1441,11 +2000,15 @@ Please note that the dispatch_info, tracking_url, tracking_info, and serial_no f
 </tr>
 <tr>
 <td>type</td>
-<td>The event type (<code>ORDER_PLACED</code>, <code>ORDER_INVOICED</code>, <code>ORDER_DISPATCHED</code>, <code>ORDER_CANCELLED</code>)</td>
+<td>The event type (<code>ORDER_PLACED</code>, <code>ORDER_INVOICED</code>, <code>ORDER_DISPATCHED</code>, <code>ORDER_CANCELLED</code>, <code>COLLECTION_REQUEST</code>, <code>COLLECTED_BOOKED</code>)</td>
 </tr>
 <tr>
-<td>order</td>
-<td>A JSON object representing the order being referenced</td>
+<td>order (if notification is order related)</td>
+<td>A JSON object representing the current state of the order being referenced</td>
+</tr>
+<tr>
+<td>collection (if notification is collection related)</td>
+<td>A JSON object representing the current state of the collection being referenced</td>
 </tr>
 <tr>
 <td>verification_signature</td>
@@ -1458,7 +2021,7 @@ Please note that the dispatch_info, tracking_url, tracking_info, and serial_no f
 <p><code>6010365.MONZ0002.ORDER_DISPATCHED</code></p>
 
 <p>The string is then encoded using the HmacSHA256 algorithm using a long secret key pre-determined between Novatech and you. Finally the value is Hex encoded and included in the JSON.</p>
-<h3 id='response-7'>Response</h3>
+<h3 id='response-9'>Response</h3>
 <p>Each request simply expects a HTTP 200 code in response. If any other HTTP status code is received the notification will be resent later, and will continue to be so until the 200 code is received.</p>
 <h1 id='errors'>Errors</h1>
 <blockquote>
