@@ -381,14 +381,14 @@ curl --request POST \
 {
   "order_number": "MONZ0001",
   "deliver_to": {
-    "name": "Lindy Bishop",
+    "name": "<%= config[:test_name] %>",
     "address_lines": [
-      "38 Finsbury Square",
-      "London"
+      "<%= config[:test_line1] %>",
+      "<%= config[:test_line2] %>"
     ],
-    "postal_code": "EC2A 1PX",
-    "email_address": "lindy@monzo.com",
-    "phone_number": "+448008021456"
+    "postal_code": "<%= config[:test_pcode] %>",
+    "email_address": "<%= config[:customer_email] %>",
+    "phone_number": "<%= config[:customer_mobile] %>"
   },
   "order_lines": [
     {
@@ -408,7 +408,7 @@ import requests
 
 url = "<%= config[:api_endpoint] %>/order"
 
-payload = "\n{\n  \"order_number\": \"MONZ0001\",\n  \"deliver_to\": {\n     \"name\": \"Lindy Bishop\",\n     \"address_lines\": [\n       \"38 Finsbury Square\",\n       \"London\"\n     ],\n     \"postal_code\": \"EC2A 1PX\",\n     \"email_address\": \"lindy@monzo.com\",\n     \"phone_number\": \"+448008021456\"\n  },\n  \"order_lines\": [\n    {\n      \"sku\": \"TEST-SKU01\",\n      \"quantity\": 1\n    },\n    {\n      \"sku\": \"TEST-SKU02\",\n      \"quantity\": 2\n    }\n  ]\n} "
+payload = "\n{\n  \"order_number\": \"MONZ0001\",\n  \"deliver_to\": {\n     \"name\": \"<%= config[:test_name] %>\",\n     \"address_lines\": [\n       \"<%= config[:test_line1] %>\",\n       \"<%= config[:test_line2] %>\"\n     ],\n     \"postal_code\": \"<%= config[:test_pcode] %>\",\n     \"email_address\": \"<%= config[:customer_email] %>\",\n     \"phone_number\": \"<%= config[:customer_mobile] %>\"\n  },\n  \"order_lines\": [\n    {\n      \"sku\": \"TEST-SKU01\",\n      \"quantity\": 1\n    },\n    {\n      \"sku\": \"TEST-SKU02\",\n      \"quantity\": 2\n    }\n  ]\n} "
 headers = {'Content-Type': 'application/json'}
 
 response = requests.request("POST", url, data=payload, headers=headers)
@@ -430,7 +430,7 @@ func main() {
 
 	url := "<%= config[:api_endpoint] %>/order"
 
-	payload := strings.NewReader("\n{\n  \"order_number\": \"MONZ0001\",\n  \"deliver_to\": {\n     \"name\": \"Lindy Bishop\",\n     \"address_lines\": [\n       \"38 Finsbury Square\",\n       \"London\"\n     ],\n     \"postal_code\": \"EC2A 1PX\",\n     \"email_address\": \"lindy@monzo.com\",\n     \"phone_number\": \"+448008021456\"\n  },\n  \"order_lines\": [\n    {\n      \"sku\": \"TEST-SKU01\",\n      \"quantity\": 1\n    },\n    {\n      \"sku\": \"TEST-SKU02\",\n      \"quantity\": 2\n    }\n  ]\n} ")
+	payload := strings.NewReader("\n{\n  \"order_number\": \"MONZ0001\",\n  \"deliver_to\": {\n     \"name\": \"<%= config[:test_name] %>\",\n     \"address_lines\": [\n       \"<%= config[:test_line1] %>\",\n       \"<%= config[:test_line2] %>\"\n     ],\n     \"postal_code\": \"<%= config[:test_pcode] %>\",\n     \"email_address\": \"<%= config[:customer_email] %>\",\n     \"phone_number\": \"<%= config[:customer_mobile] %>\"\n  },\n  \"order_lines\": [\n    {\n      \"sku\": \"TEST-SKU01\",\n      \"quantity\": 1\n    },\n    {\n      \"sku\": \"TEST-SKU02\",\n      \"quantity\": 2\n    }\n  ]\n} ")
 
 	req, _ := http.NewRequest("POST", url, payload)
 
@@ -451,7 +451,7 @@ func main() {
 
 ```json
 {
-  "trade_code": "MON024",
+  "trade_code": "<%= config[:trade_code] %>",
   "order_number": "MONZ0001",
   "novatech_order_number": 6010361,
   "order_date": "2018-10-09 09:04:00",
@@ -507,7 +507,7 @@ Parameter | Required |  Description
 order_number| yes | Your purchase order reference. Max length 14
 deliver_to | yes | JSON object containing delivery information
 name | yes | The name of the person the order is to be delivered to. Min length 5, max length 30
-address_lines | yes | An array of address lines. There must be at least one line in the array. Max length 30, max number of lines 4
+address_lines | yes | An array of address lines. There must be at least two lines in the array. Max length 30, max number of lines 4
 postal_code | yes | The post code of the address for delivery. Max length 8
 email_address | yes | The email address of the recipient. Max length 254
 phone_number | yes | The phone number of the recipient. Max length 30
@@ -691,7 +691,7 @@ func main() {
 
 ```json
 {
-  "trade_code": "MON024",
+  "trade_code": "<%= config[:trade_code] %>",
   "order_number": "MONZ0001",
   "novatech_order_number": 6010361,
   "order_date": "2018-10-09 09:04:00",
@@ -798,6 +798,444 @@ date_tracked | The date the item was scanned
 Please note that the dispatch_info, tracking_url, tracking_info, and serial_no fields may not be present.
 </aside>
 
+# Collections
+
+## Initiate Collection Process
+
+```shell
+curl --location --request POST <%= config[:api_endpoint] %>/collection/book \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "collection_reference": "APITEST",
+    "collect_from": {
+        "name": "<%= config[:test_name] %>",
+        "address_lines": [
+            "<%= config[:test_line1] %>",
+            "<%= config[:test_line2] %>"
+        ],
+        "postal_code": "<%= config[:test_pcode] %>"
+    },
+    "notification_email_address": "<%= config[:customer_email] %>",
+    "notification_phone_number": "<%= config[:customer_mobile] %>",
+    "packaging_lines": [
+        {
+            "packaging_type": "laptop",
+            "asset_tag": "1234567890"
+        },
+        {
+            "packaging_type": "laptop",
+            "asset_tag": "0987654321"
+        }
+    ]
+}'
+```
+
+```go
+package main
+
+import (
+  "fmt"
+  "strings"
+  "net/http"
+  "io/ioutil"
+)
+
+func main() {
+
+  url := "<%= config[:api_endpoint] %>/collection/book"
+  method := "POST"
+
+  payload := strings.NewReader(`{`+"
+"+`
+    "collection_reference": "APITEST",`+"
+"+`
+    "collect_from": {`+"
+"+`
+        "name": "<%= config[:test_name] %>",`+"
+"+`
+        "address_lines": [`+"
+"+`
+            "<%= config[:test_line1] %>",`+"
+"+`
+            "<%= config[:test_line2] %>"`+"
+"+`
+        ],`+"
+"+`
+        "postal_code": "<%= config[:test_pcode] %>"`+"
+"+`
+    },`+"
+"+`
+    "notification_email_address": "<%= config[:customer_email] %>",`+"
+"+`
+    "notification_phone_number": "<%= config[:customer_mobile] %>",`+"
+"+`
+    "packaging_lines": [`+"
+"+`
+        {`+"
+"+`
+            "packaging_type": "laptop",`+"
+"+`
+            "asset_tag": "1234567890"`+"
+"+`
+        },`+"
+"+`
+        {`+"
+"+`
+            "packaging_type": "laptop",`+"
+"+`
+            "asset_tag": "0987654321"`+"
+"+`
+        }`+"
+"+`
+    ]`+"
+"+`
+}`)
+
+  client := &http.Client {
+  }
+  req, err := http.NewRequest(method, url, payload)
+
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+  req.Header.Add("Content-Type", "application/json")
+
+  res, err := client.Do(req)
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+  defer res.Body.Close()
+
+  body, err := ioutil.ReadAll(res.Body)
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+  fmt.Println(string(body))
+}
+```
+
+```python
+import requests
+import json
+
+url = "<%= config[:api_endpoint] %>/collection/book"
+
+payload = json.dumps({
+  "collection_reference": "APITEST",
+  "collect_from": {
+    "name": "<%= config[:test_name] %>",
+    "address_lines": [
+      "<%= config[:test_line1] %>",
+      "<%= config[:test_line2] %>"
+    ],
+    "postal_code": "<%= config[:test_pcode] %>"
+  },
+  "notification_email_address": "<%= config[:customer_email] %>",
+  "notification_phone_number": "<%= config[:customer_mobile] %>",
+  "packaging_lines": [
+    {
+      "packaging_type": "laptop",
+      "asset_tag": "1234567890"
+    },
+    {
+      "packaging_type": "laptop",
+      "asset_tag": "0987654321"
+    }
+  ]
+})
+headers = {
+  'Content-Type': 'application/json'
+}
+
+response = requests.request("POST", url, headers=headers, data=payload)
+
+print(response.text)
+```
+
+> This endpoint returns JSON structured like this:
+
+```json
+{
+    "supplier_order_number": 6195185,
+    "collection_reference": "APITEST",
+    "collect_from": {
+        "name": "<%= config[:test_name] %>",
+        "address_lines": [
+            "<%= config[:test_line1] %>",
+            "<%= config[:test_line2] %>"
+        ],
+        "postal_code": "<%= config[:test_pcode] %>"
+    },
+    "notification_email_address": "<%= config[:customer_email] %>",
+    "notification_phone_number": "<%= config[:customer_mobile] %>",
+    "number_of_boxes": 2,
+    "created_date": "2022-07-05 13:32:59",
+    "booked": false,
+    "collection_url": "https://collections.novatechportal.co.uk/collection/bac5b960-168d-4e37-a548-6ae2af9e5be5",
+    "assets": [
+        {
+            "asset_tag": "1234567890",
+            "type": "LAPTOP",
+            "received_back": false
+        },
+        {
+            "asset_tag": "0987654321",
+            "type": "LAPTOP",
+            "received_back": false
+        }
+    ]
+}
+```
+When your assets have come to the end of their life, you can automatically arrange a collection of the items through the API. 
+Simply make a request detailing the items to be collected, and Novatech will send out appropriate packaging for the end user to safely protect the goods. 
+The user can then request a collection date most suitable for them with the unique link provided to them via email and SMS.
+
+### HTTP Request
+
+`POST <%= config[:api_endpoint] %>/collection/book`
+
+### Body Parameters
+
+Parameter | Required | Description
+----------|----------|------------
+collection_reference|yes|Your own collection or ticket reference for use in your own records. Max length 14
+collect_from|yes|JSON object containing the address you wish the goods to be collected from
+name|yes|The name of the person the items are to be collected from. Min length 3, max length 30
+address_lines|yes|An array of address lines. There must be at least 2 lines in the array. Max length 30, max number of lines 4
+postal_code|yes|The post code of the address for collection. Max length 8
+notification_email_address|yes|The email of the person you wish notifications and alerts to be sent to. Max length 254
+notification_phone_number|yes|The mobile phone number of the person you wish notifications and alerts about this collection to be sent to. Max length 30
+packaging_lines|yes|An array of JSON objects identifying the items you wish to be collected
+packaging_type|yes|The type of packaging required to collect the item in question i.e. laptop. These types will be arranged with your account manager before go live
+asset_tag|yes|Your products asset tag or serial number. Must be a unique identifier in order to track when we receive the item back
+
+### Response
+
+Parameter | Description
+----------|------------
+supplier_order_number|Our unique order number for this collection
+collection_reference|Your collection or ticket reference from your own records
+collect_from|A JSON object containing the address we will be collecting the items from
+name|The name of the person we are collecting the items from
+address_lines|An array of address lines
+postal_code|The post code of the address we are collecting the items from
+notification_email_address|The email address all notifications and alerts relating to this collection will be sent to
+notification_phone_number|The mobile number all notifications and alerts relating to this collection will be sent to
+number_of_boxes|The number of boxes being sent to the collection address
+created_date|The date the collection request was AnEvenLongerAndMoreSecurePasswordThanBefore
+booked|Whether the end user the collection is being made from has booked a date for the items to be collected
+collection_url|The uniqiue URL for the end user to use to book their collection date. The end user is also emailed and sent an SMS containing this link
+assets|An array of JSON objects representing the assets you have requested to be collected
+asset_tag|The items asset tag or serial number
+type|The packaging type requested for this item
+received_back|Whether we have received the item back or not
+
+<aside class="warning">
+Please note that in order to facilitate the collections process and to ensure we have suitable packaging and are ready to process any returned items, you must have an agreement in place with your account manager.
+</aside>
+
+## Lookup Collection Status
+
+> Searching by collection reference:
+
+```shell
+curl --location --request GET '<%= config[:api_endpoint] %>/collection/search?collection_ref=APITEST'
+```
+
+```go
+package main
+
+import (
+  "fmt"
+  "net/http"
+  "io/ioutil"
+)
+
+func main() {
+
+  url := "<%= config[:api_endpoint] %>/collection/search?collection_ref=APITEST"
+  method := "GET"
+
+  client := &http.Client {
+  }
+  req, err := http.NewRequest(method, url, nil)
+
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+  
+  res, err := client.Do(req)
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+  defer res.Body.Close()
+
+  body, err := ioutil.ReadAll(res.Body)
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+  fmt.Println(string(body))
+}
+```
+
+```python
+import requests
+
+url = "<%= config[:api_endpoint] %>/collection/search?collection_ref=APITEST"
+
+response = requests.request("GET", url)
+
+print(response.text)
+```
+
+> Searching by asset tag:
+
+```shell
+curl --location --request GET '<%= config[:api_endpoint] %>/collection/search?asset_tag=1234567890'
+```
+
+```go
+package main
+
+import (
+  "fmt"
+  "net/http"
+  "io/ioutil"
+)
+
+func main() {
+
+  url := "<%= config[:api_endpoint] %>/collection/search?asset_tag=1234567890"
+  method := "GET"
+
+  client := &http.Client {
+  }
+  req, err := http.NewRequest(method, url, nil)
+
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+  
+  res, err := client.Do(req)
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+  defer res.Body.Close()
+
+  body, err := ioutil.ReadAll(res.Body)
+  if err != nil {
+    fmt.Println(err)
+    return
+  }
+  fmt.Println(string(body))
+}
+```
+
+```python
+import requests
+
+url = "<%= config[:api_endpoint] %>/collection/search?asset_tag=1234567890"
+
+response = requests.request("GET", url)
+
+print(response.text)
+```
+
+> Either of the above requests will return JSON structured like this:
+
+```json
+[
+    {
+        "supplier_order_number": 6195185,
+        "collection_reference": "APITEST",
+        "collect_from": {
+            "name": "<%= config[:test_name] %>",
+            "address_lines": [
+                "<%= config[:test_line1] %>",
+                "<%= config[:test_line2] %>"
+            ],
+            "postal_code": "<%= config[:test_pcode] %>"
+        },
+        "notification_email_address": "<%= config[:customer_email] %>",
+        "notification_phone_number": "<%= config[:customer_mobile] %>",
+        "number_of_boxes": 2,
+        "created_date": "2022-07-05 13:32:59",
+        "booked": false,
+        "collection_url": "https://collections.novatechportal.co.uk/collection/bac5b960-168d-4e37-a548-6ae2af9e5be5",
+        "assets": [
+            {
+                "asset_tag": "1234567890",
+                "type": "LAPTOP",
+                "received_back": false
+            },
+            {
+                "asset_tag": "0987654321",
+                "type": "LAPTOP",
+                "received_back": false
+            }
+        ]
+    },
+    {
+        "supplier_order_number": 6195184,
+        "collection_reference": "APITEST",
+        "collect_from": {
+            "name": "<%= config[:test_name] %>",
+            "address_lines": [
+                "<%= config[:test_line1] %>",
+                "<%= config[:test_line2] %>"
+            ],
+            "postal_code": "<%= config[:test_pcode] %>"
+        },
+        "notification_email_address": "<%= config[:customer_email] %>",
+        "notification_phone_number": "<%= config[:customer_mobile] %>",
+        "number_of_boxes": 2,
+        "created_date": "2022-06-27 11:40:51",
+        "booked": false,
+        "collection_url": "https://collections.novatechportal.co.uk/collection/c46e2ce6-37e2-453a-a99a-d7f114567f1f",
+        "requested_collection_date": "2021-11-13 13:59:41",
+        "assets": [
+            {
+                "asset_tag": "1234567890",
+                "type": "LAPTOP",
+                "received_back": false
+            },
+            {
+                "asset_tag": "0987654321",
+                "type": "LAPTOP",
+                "received_back": false
+            }
+        ]
+    }
+]
+```
+
+This endpoint allows you to lookup detailed information on any collection you have requested through the API.
+
+### HTTP Request
+
+`GET <%= config[:api_endpoint] %>/collection/search?<SEARCH_TYPE>=<SEARCH_QUERY>`
+
+### URL Parameters
+
+You can search using two different search types; either using your collection reference or the asset tag, or a combination of the two
+
+Parameter | Description
+----------|------------
+collection_ref|The collection reference or ticket number you passed along when requesting the collection
+asset_tag|The asset tag or serial number of one of the items you requested be collected
+
+### Response
+
+The response will be a JSON array of collection objects as detailed in the response to initiating a collection.
+
 # Audit Log
 
 ## Get Audit Log
@@ -892,9 +1330,9 @@ timestamp | The time when the action occured
 email | The username / email that carried out the action
 action | The action that was carried out
 
-# Notifications
+# Webhook Notifications
 
-> The POST request will contain JSON structured like this:
+> For notifications related to orders the POST request will contain JSON structured like this:
 
 ```json
 {
@@ -902,7 +1340,7 @@ action | The action that was carried out
   "type": "ORDER_DISPATCHED",
   "order_number": "MONZ0002",
   "order": {
-    "trade_code": "MON024",
+    "trade_code": "<%= config[:trade_code] %>",
     "order_number": "MONZ0002",
     "novatech_order_number": 6010365,
     "order_date": "2019-01-18 12:57:00",
@@ -952,18 +1390,59 @@ action | The action that was carried out
     ],
     "tracking_info": [
       {
-        "sku": "CAB-C6/2  ",
+        "sku": "CAB-C6/2",
         "track_no": 1234567,
         "date_tracked": "2019-01-18 15:23:24"
       },
       {
-        "sku": "cab-c6/2  ",
+        "sku": "cab-c6/2",
         "track_no": 1234567,
         "date_tracked": "2019-01-18 15:34:51"
       }
     ]
   },
   "verification_signature": "e86f90f643284a36b486c4c5ea1c159b0ba9311b7a497c02e994bb982cb09142"
+}
+```
+
+> For Collections related notifications the POST request will contain JSON like this:
+
+```json
+{
+  "supplier_order_number": 6195185,
+  "type": "COLLECTION_REQUESTED",
+  "order_number": "APITEST",
+  "collection": {
+    "supplier_order_number": 6195185,
+    "collection_reference": "APITEST",
+    "collect_from": {
+      "name": "<%= config[:test_name] %>",
+      "address_lines": [
+        "<%= config[:test_line1] %>",
+        "<%= config[:test_line2] %>"
+      ],
+      "postal_code": "<%= config[:test_pcode] %>"
+    },
+    "notification_email_address": "<%= config[:customer_email] %>",
+    "notification_phone_number": "<%= config[:customer_mobile] %>",
+    "number_of_boxes": 2,
+    "created_date": "2022-07-05 13:32:59",
+    "booked": false,
+    "collection_url": "https://collections.novatechportal.co.uk/collection/bac5b960-168d-4e37-a548-6ae2af9e5be5",
+    "assets": [
+      {
+        "asset_tag": "1234567890",
+        "type": "LAPTOP",
+        "received_back": false
+      },
+      {
+        "asset_tag": "0987654321",
+        "type": "LAPTOP",
+        "received_back": false
+      }
+    ]
+  },
+  "verification_signature": "1c5306f2fcbc112e38a24d603e80f0deb2986b20e6a3d2e6a1cbdfd1040e687e"
 }
 ```
 
@@ -975,6 +1454,8 @@ You can receive notifications for the following events:
 * Order Invoiced
 * Order Dispatched
 * Order Cancelled
+* Collection Requested
+* Collection Booked by End User
 
 As the order moves through our systems, at each status change the API can send a POST request to a webhook you control.
 
@@ -984,8 +1465,9 @@ Parameter | Description
 ----------|------------
 supplier_order_number | Novatech's order number
 order_number | Your order reference
-type | The event type (`ORDER_PLACED`, `ORDER_INVOICED`, `ORDER_DISPATCHED`, `ORDER_CANCELLED`)
-order | A JSON object representing the order being referenced
+type | The event type (`ORDER_PLACED`, `ORDER_INVOICED`, `ORDER_DISPATCHED`, `ORDER_CANCELLED`, `COLLECTION_REQUEST`, `COLLECTED_BOOKED`)
+order (if notification is order related) | A JSON object representing the current state of the order being referenced
+collection (if notification is collection related) | A JSON object representing the current state of the collection being referenced
 verification_signature | A hex-encoded signature string to verify the notification received.
 
 ### Verification Signature
